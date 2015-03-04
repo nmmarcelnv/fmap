@@ -1,16 +1,23 @@
 + cat /proc/cpuinfo
 + export OMP_NUM_THREADS=16
 + OMP_NUM_THREADS=16
++ export MIC_OMP_NUM_THREADS=240
++ MIC_OMP_NUM_THREADS=240
 + ln -sf ../dat/lattice.txt .
 + head -20 ../dat/3600.ang.dat
 + ../src/fmap crowd.vdw 1.vdw 334 0.5970749 0.05 1.08 1.08 298 ang.dat.20 2.0 0.2 -9
 
-real	1m58.221s
-user	30m40.221s
-sys	0m23.105s
+real	2m14.763s
+user	34m39.105s
+sys	0m31.356s
 + grep -v '^  0.000000  0.000000  0.000000' test20.sh.out
 + ../src/fmapdd fmap.out 0.05 298 2.0 0.2
 
-real	0m26.193s
-user	2m59.089s
-sys	3m39.236s
+real	0m11.186s
+user	2m8.511s
+sys	0m0.272s
++ ../src/fmapdd.mic fmap.out 0.05 298 2.0 0.2
+
+real	0m43.971s
+user	0m0.030s
+sys	0m0.017s

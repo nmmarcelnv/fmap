@@ -64,7 +64,7 @@ int main(int argc, char **argv){
         int nb=(int)ceil(2.0*sys.rup/lnkc2);
         lnk_setnb(lnk,nb);
 	int nPro=CountAtoms(ProFn);
-        ATOM Pros[nPro],ProSav[nPro];
+        ATOM Pros[nPro];
         ReadPqr(ProFn,nPro,Pros);
 	SetKap(nPro,Pros,sys.kap);
         ToCtd(nPro,Pros,zd.l);
@@ -72,20 +72,18 @@ int main(int argc, char **argv){
         printf("%f\t%f\t%f\n",0.0,0.0,0.0);
         printf("%s\t%8.3f%8.3f%8.3f\n",CrdFn,zd.r[0],zd.r[1],zd.r[2]);
         printf("%s\t%8.3f%8.3f%8.3f\n",ProFn,zd.l[0],zd.l[1],zd.l[2]);
-	for (i=0;i<nPro;i++){
-		ProSav[i]=Pros[i];
-	}
 	double ern[4][nv];
 	double ernCrd[4][nCrd];
 	double ernPro[4][nPro];
 	zeroarr(nCrd*4,&(ernCrd[0][0]));
 	zeroarr(nPro*4,&(ernPro[0][0]));
-	#pragma omp parallel for schedule(static) firstprivate(Pros,nCrd,l,dx,nv)
+	#pragma omp parallel for schedule(static)
 	for (i=0;i<nv;i++){
 		double rot[9];
+		ATOM ProCur[nPro];
 		Euler2Rot(Angs[i][0],Angs[i][1],Angs[i][2],rot);
-		RotPro(nPro,ProSav,Pros,rot);
-		softlnkijk1(nCrd,Crds,nPro,Pros,l,dx,&sys,lnk,nv,tran,ern,ernCrd,ernPro,i);
+		RotPro(nPro,Pros,ProCur,rot);
+		softlnkijk1(nCrd,Crds,nPro,ProCur,l,dx,&sys,lnk,nv,tran,ern,ernCrd,ernPro,i);
 	}
 	ijkrep(nCrd,Crds,nPro,Pros,&sys,nv,Angs,tran,score,ern,ernCrd,ernPro,stdout);
 	lnk_free(lnk);
