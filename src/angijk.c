@@ -18,6 +18,7 @@ void ernaddPro(int n, ATOM atoms[n], double ern[n], double scl){
 
 void ernadd(int n, double e1[n],double e2[n],double e3[n]){
 	int i;
+	#pragma omp for schedule(static)
 	for (i=0;i<n;i++){
 		e3[i]=e1[i]+e2[i];
 	}
@@ -25,6 +26,7 @@ void ernadd(int n, double e1[n],double e2[n],double e3[n]){
 
 void ernscl(int n, double e1[n], double scl){
 	int i;
+	#pragma omp for schedule(static)
 	for (i=0;i<n;i++){
 		e1[i]=e1[i]*scl;
 	}
@@ -117,9 +119,12 @@ void softijk1(int nCrd, ATOM Crds[], int nPro, ATOM Pros[], int l, double dx, PA
 void ijkrep(int nCrd, ATOM Crds[], int nPro, ATOM Pros[], PARM* sys, int nv, double angs[nv][3], double ijk[nv][3], double score[nv], double ern[4][nv],double ernCrd[4][nCrd], double ernPro[4][nPro], FILE *fp){
 	const double escl=sys->escl;
         const double vscl=sys->vscl;
+	#pragma omp parallel	
+	{
 	ernscl(nv,ern[1],escl);	
 	ernscl(nv,ern[2],vscl);	
 	ernadd(nv,ern[1],ern[2],ern[3]);
+	}
         //ernadd(nCrd,ernCrd[1],ernCrd[2],ernCrd[3]);
         //ernadd(nPro,ernPro[1],ernPro[2],ernPro[3]);
         ViIJK(fp,nv,angs,ijk,score,ern);

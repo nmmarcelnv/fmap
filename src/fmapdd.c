@@ -77,13 +77,16 @@ int main(int argc, char **argv){
 	double ernPro[4][nPro];
 	zeroarr(nCrd*4,&(ernCrd[0][0]));
 	zeroarr(nPro*4,&(ernPro[0][0]));
-	#pragma omp parallel for schedule(static)
+	#pragma omp parallel 
+	{
+	#pragma omp for schedule(dynamic,1) nowait
 	for (i=0;i<nv;i++){
 		double rot[9];
 		ATOM ProCur[nPro];
 		Euler2Rot(Angs[i][0],Angs[i][1],Angs[i][2],rot);
 		RotPro(nPro,Pros,ProCur,rot);
 		softlnkijk1(nCrd,Crds,nPro,ProCur,l,dx,&sys,lnk,nv,tran,ern,ernCrd,ernPro,i);
+	}
 	}
 	ijkrep(nCrd,Crds,nPro,Pros,&sys,nv,Angs,tran,score,ern,ernCrd,ernPro,stdout);
 	lnk_free(lnk);
