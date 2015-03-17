@@ -10,8 +10,7 @@ double myEXP(const double x){
 }
 
 void showscorenet(const char* func, double sum, double frac, double u,double u1){
-        fprintf(stderr,"%s\t",func);
-        fprintf(stderr,"Sum: %16e Occ:%16.12f Ave:%16.8f Net:%16.8f\n",sum,frac,u,u1);
+        fprintf(stderr,"%s\tSum: %16e Occ:%16.12f Ave:%16.8f Net:%16.8f\n",func,sum,frac,u,u1);
 }
 
 void toBool(int l, fftw_real *grid, bool *gridbool, fftw_real cutoff){

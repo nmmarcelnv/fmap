@@ -1,3 +1,11 @@
++ export MV2_USE_AFFINITY=0
++ MV2_USE_AFFINITY=0
++ export MV2_ENABLE_AFFINITY=0
++ MV2_ENABLE_AFFINITY=0
++ export VIADEV_USE_AFFINITY=0
++ VIADEV_USE_AFFINITY=0
++ export VIADEV_ENABLE_AFFINITY=0
++ VIADEV_ENABLE_AFFINITY=0
 + cat /proc/cpuinfo
 + export OMP_NUM_THREADS=16
 + OMP_NUM_THREADS=16
@@ -7,17 +15,17 @@
 + head -20 ../dat/3600.ang.dat
 + ../src/fmap crowd.vdw 1.vdw 334 0.5970749 0.05 1.08 1.08 298 ang.dat.20 2.0 0.2 -9
 
-real	2m14.763s
-user	34m39.105s
-sys	0m31.356s
+real	2m26.211s
+user	37m23.880s
+sys	0m29.367s
 + grep -v '^  0.000000  0.000000  0.000000' test20.sh.out
 + ../src/fmapdd fmap.out 0.05 298 2.0 0.2
 
-real	0m11.186s
-user	2m8.511s
-sys	0m0.272s
+real	0m9.441s
+user	2m14.846s
+sys	0m0.061s
 + ../src/fmapdd.mic fmap.out 0.05 298 2.0 0.2
 
-real	0m43.971s
-user	0m0.030s
-sys	0m0.017s
+real	0m39.346s
+user	0m0.037s
+sys	0m0.012s

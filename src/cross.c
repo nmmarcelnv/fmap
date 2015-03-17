@@ -116,10 +116,10 @@ void Cross(PRO *rec, PRO *lig, PARM sys, const int l,fftw_real sav[l][l][2*(l/2+
 	if (erncut>0){
 		if (sys.erncut>0){
 			erncut=GetSpotCut(l,vol,local,100,100,sys.kBT);
+			fprintf(stderr,"erncut:%f\n",erncut);
 		}else{
 			erncut=sys.erncut;
 		}
-		fprintf(stderr,"erncut:%f\n",erncut);
 	}
 	SelErn(l,vol,local,ang,erncut);
 	BltzSumFilt(l,vol,sav,local,sys.kBT);

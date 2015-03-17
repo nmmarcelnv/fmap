@@ -2,6 +2,11 @@
 
 set -x
 
+export MV2_USE_AFFINITY=0
+export MV2_ENABLE_AFFINITY=0
+export VIADEV_USE_AFFINITY=0
+export VIADEV_ENABLE_AFFINITY=0
+
 cat /proc/cpuinfo >test20.sh.cpuinfo
 export OMP_NUM_THREADS=16
 export MIC_OMP_NUM_THREADS=240

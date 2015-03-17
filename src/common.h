@@ -9,7 +9,13 @@
 #include <float.h>
 #include <stdbool.h>
 #include <assert.h>
-#include <omp.h>
+
+#ifdef _OPENMP
+	#include <omp.h>
+#endif /* _OPENMP */
+#ifdef USE_MPI
+        #include <mpi.h>
+#endif /* USE_MPI */
 
 #include "pdb.h"
 #include "pro.h"
