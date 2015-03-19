@@ -7,15 +7,15 @@ CFLAGS= -I${TACC_FFTW3_INC} -c -Wall -O3 -std=c99 -openmp -DUSE_MPI #-pg -openmp
 CFLAGSMIC= -I${TACC_FFTW3_INC} -c -Wall -O3 -std=c99 -openmp -mmic #-pg -openmp_report=2
 LDFLAGS= -I${TACC_FFTW3_INC} -Wl,-rpath,${TACC_FFTW3_LIB}  -L${TACC_FFTW3_LIB} -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI #-pg
 LDFLAGSMIC= -I${TACC_FFTW3_INC} -lm -Wall -std=c99 -openmp -O3 -mmic #-pg
-SOURCES= cross.c  fftw.c  grdL.c  grdR.c  parm.c  pdb.c  pro.c  rdf.c  rot.c  score.c
-SOURCESdd= ele.drt.c  vdw.drt.c  vol.drt.c linked.c drt.c drtlnk.c angijk.c zdread.c pdb.c rot.c score.c parm.c 
-SOURCESddatm= ele.drt.c  vdw.drt.c  vol.drt.c linked.c drt.atm.c drtlnk.atm.c angijk.atm.c zdread.c pdb.c rot.c score.c parm.c
+SOURCES= cross.c  fftw.c  grdL.c  grdR.c  parm.c  pdb.c  pro.c  rdf.c  rot.c  score.c cputime.c
+SOURCESdd= ele.drt.c  vdw.drt.c  vol.drt.c linked.c drt.c drtlnk.c angijk.c zdread.c pdb.c rot.c score.c parm.c cputime.c 
+SOURCESddatm= ele.drt.c  vdw.drt.c  vol.drt.c linked.c drt.atm.c drtlnk.atm.c angijk.atm.c zdread.c pdb.c rot.c score.c parm.c cputime.c
 OBJECTS=$(SOURCES:.c=.o)
 OBJECTSdd=$(SOURCESdd:.c=.o)
 OBJECTSddMIC=$(SOURCESdd:.c=.om)
 OBJECTSddatm=$(SOURCESddatm:.c=.o)
 OBJECTSddatmMIC=$(SOURCESddatm:.c=.om)
-EXECUTABLE=fmap fmapdd fmapdd.atm fmapdd.showpqr
+EXECUTABLE=fmap fmap.cen fmapdd fmapdd.atm fmapdd.showpqr
 EXECUTABLEMIC=fmapdd.mic fmapdd.atm.mic fmapdd.showpqr.mic
 
 all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) $(EXECUTABLEMIC)
@@ -25,6 +25,9 @@ all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) $(EXECUTABLEMIC)
 
 fmap: $(OBJECTS) fmap.o
 	$(MPICC) $(OBJECTS) fmap.o $(LDFLAGS) -o $@
+fmap.cen: $(OBJECTS) fmap.c
+	grep -v -e ToCtd fmap.c >fmap.cen.c
+	$(MPICC) $(OBJECTS) fmap.cen.c $(LDFLAGS) -o $@
 
 fmapdd: $(OBJECTSdd)  fmapdd.c
 	$(MPICC) $(OBJECTSdd) fmapdd.c $(LDFLAGS) -o $@

@@ -22,12 +22,14 @@ int main(int argc, char **argv){
                 usage(argv[0]);
                 exit(EXIT_FAILURE);
         }
+	Times(true,3,0,8,9);
 
 #ifdef USE_MPI
 	int rank,size;
         MPI_Init(&argc,&argv);
         MPI_Comm_size(MPI_COMM_WORLD,&size);
         MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+	Times(false,1,8);
 #endif
 		
         double ion=atof(argv[2]);
@@ -55,7 +57,9 @@ int main(int argc, char **argv){
 		nv=ZDread(argv[1],&zd,(void*)(NULL),(void*)(NULL),(void*)(NULL),false);
 #ifdef USE_MPI
 	}
+	Times(true,1,8);
 	MPI_Bcast(&nv,1,MPI_INT,0,MPI_COMM_WORLD);
+	Times(false,1,8);
 #endif
 	
 	double Angs[nv][3],tran[nv][3],score[nv];
@@ -70,6 +74,7 @@ int main(int argc, char **argv){
 		nPro=CountAtoms(zd.lig);
 #ifdef USE_MPI
 	}
+	Times(true,1,8);
 	MPI_Bcast(&l,1,MPI_INT,0,MPI_COMM_WORLD);
 	MPI_Bcast(&dx,1,MPI_DOUBLE,0,MPI_COMM_WORLD);
 	MPI_Bcast(&lnkc2,1,MPI_DOUBLE,0,MPI_COMM_WORLD);
@@ -77,10 +82,7 @@ int main(int argc, char **argv){
         MPI_Bcast(&nPro,1,MPI_INT,0,MPI_COMM_WORLD);
 	MPI_Bcast(Angs,nv*3,MPI_DOUBLE,0,MPI_COMM_WORLD);
 	MPI_Bcast(tran,nv*3,MPI_DOUBLE,0,MPI_COMM_WORLD);
-#endif
-	sys.dx=dx;
-
-#ifdef USE_MPI
+	
 	//https://www.msi.umn.edu/workshops/mpi/hands-on/derived-datatypes/struct/assign
         //define MPI type for ATOM modified for MPI-2
         MPI_Datatype MPI_ATOM;
@@ -92,8 +94,10 @@ int main(int argc, char **argv){
         MPI_ATOM_idx[1]=offsetof(ATOM,xyz);
         MPI_Type_create_struct(2,MPI_ATOM_len,MPI_ATOM_idx,MPI_ATOM_old,&MPI_ATOM);
         MPI_Type_commit(&MPI_ATOM);
+	Times(false,1,8);
 #endif
 		
+	sys.dx=dx;
         ATOM Crds[nCrd];
         ATOM Pros[nPro];
 #ifdef USE_MPI
@@ -111,8 +115,10 @@ int main(int argc, char **argv){
         	printf("%s\t%8.3f%8.3f%8.3f\n",zd.lig,zd.l[0],zd.l[1],zd.l[2]);
 #ifdef USE_MPI
 	}
+	Times(true,1,8);
 	MPI_Bcast(Crds,nCrd,MPI_ATOM,0,MPI_COMM_WORLD);
         MPI_Bcast(Pros,nPro,MPI_ATOM,0,MPI_COMM_WORLD);
+	Times(false,1,8);
 #endif
 	
 	CLINKED* lnk;
@@ -135,6 +141,8 @@ int main(int argc, char **argv){
 	zeroarr(nv*4,&(ern[0][0]));
 	zeroarr(nCrd*4,&(ernCrd[0][0]));
 	zeroarr(nPro*4,&(ernPro[0][0]));
+	Times(false,1,0);
+        Times(true,1,7);
 	#pragma omp parallel 
 	{
 	#pragma omp for schedule(dynamic,1) nowait
@@ -152,17 +160,24 @@ int main(int argc, char **argv){
 #endif	
 	}
 	}
+        Times(false,1,7);
 #ifdef USE_MPI
+	Times(true,1,8);
 	double ernglob[4][nv];
 	MPI_Reduce(ern,ernglob,4*nv,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 	if (rank==0){
 		ijkrep(nCrd,Crds,nPro,Pros,&sys,nv,Angs,tran,score,ernglob,ernCrd,ernPro,stdout);
 	}
 	MPI_Type_free(&MPI_ATOM);
-        MPI_Finalize();
+	Times(false,1,8);
 #else
 	ijkrep(nCrd,Crds,nPro,Pros,&sys,nv,Angs,tran,score,ern,ernCrd,ernPro,stdout);
-#endif	
+#endif
 	lnk_free(lnk);
+	Times(false,1,9);
+        TimeRep(stderr);
+#ifdef USE_MPI
+	MPI_Finalize();
+#endif	
 	exit(EXIT_SUCCESS);
 }	

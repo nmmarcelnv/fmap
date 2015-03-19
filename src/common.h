@@ -26,6 +26,7 @@
 #include "grd.h"
 #include "cross.h"
 #include "score.h"
+#include "cputime.h"
 
 #ifdef __cplusplus
 extern "C" {

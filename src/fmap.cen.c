@@ -97,14 +97,12 @@ int main(int argc, char **argv){
 		SclRad(nCrd,Crds,rscl);
 		SclChg(nCrd,Crds,qscl);
         	CalCtd(nCrd,Crds,cenRec);
-        	ToCtd(nCrd,Crds,cenRec);
 		Unit2dx(nCrd,Crds,dx);
 
         	ReadPqr(ProFn,nPro,Pros);
 		SetKap(nPro,Pros,sys.kap);
 		SclRad(nPro,Pros,rscl);
         	CalCtd(nPro,Pros,cenLig);
-        	ToCtd(nPro,Pros,cenLig);
 		Unit2dx(nPro,Pros,dx);
 
 		printf("%d\t%f\n",l,dx);

@@ -1,24 +1,29 @@
 #include "fftw.h"
+#include "common.h"
 
 void fft3d_r2c(int L, int M, int N, fftw_real a[L][M][2*(N/2+1)]){
 	fftw_complex *A;
 	fftw_plan p;
+	Times(true,1,4);
 	A = (fftw_complex*) &a[0][0][0];
 	p=fftw_plan_dft_r2c_3d(L, M, N,&a[0][0][0], A,
                                   FFTW_ESTIMATE);
 	fftw_execute(p);
 	fftw_destroy_plan(p);
+	Times(false,1,4);
 	//fftw_cleanup();
 }
 
 void fft3d_c2r(int L, int M, int N, fftw_real c[L][M][2*(N/2+1)]){
         fftw_complex *C;
 	fftw_plan p;
+	Times(true,1,5);
         C = (fftw_complex*) &c[0][0][0];
      	p=fftw_plan_dft_c2r_3d(L, M, N, C, &c[0][0][0],
                                   FFTW_ESTIMATE);
         fftw_execute(p);
         fftw_destroy_plan(p);
+	Times(false,1,5);
 	//fftw_cleanup();
 }
 
@@ -27,6 +32,7 @@ void fft3d_c2r(int L, int M, int N, fftw_real c[L][M][2*(N/2+1)]){
 void fft3d_add_inplace(int L, int M, int N,fftw_real a[L][M][2*(N/2+1)], fftw_real b[L][M][2*(N/2+1)]){
 	fftw_real scale = 1.0 / ((fftw_real)L*(fftw_real) M * (fftw_real)N);
 	fftw_complex *A, *B;
+	Times(true,1,6);
 	A = (fftw_complex*) &a[0][0][0];
 	B = (fftw_complex*) &b[0][0][0];
 	int i, j, k;
@@ -41,4 +47,5 @@ void fft3d_add_inplace(int L, int M, int N,fftw_real a[L][M][2*(N/2+1)], fftw_re
 		B[ijk][0]=tmpC[0];
                 B[ijk][1]=tmpC[1];
                 }
+	Times(false,1,6);
 }
