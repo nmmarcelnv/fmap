@@ -26,7 +26,7 @@ all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) $(EXECUTABLEMIC)
 fmap: $(OBJECTS) fmap.o
 	$(MPICC) $(OBJECTS) fmap.o $(LDFLAGS) -o $@
 fmap.cen: $(OBJECTS) fmap.c
-	grep -v -e ToCtd fmap.c >fmap.cen.c
+	grep -v -e ToCtd -e CalCtd fmap.c >fmap.cen.c
 	$(MPICC) $(OBJECTS) fmap.cen.c $(LDFLAGS) -o $@
 
 fmapdd: $(OBJECTSdd)  fmapdd.c

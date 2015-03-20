@@ -91,18 +91,17 @@ int main(int argc, char **argv){
 #ifdef USE_MPI
 	if (rank==0){
 #endif /* USE_MPI */
-		double cenRec[3],cenLig[3];
+		double cenRec[3]= { 0.0 };
+		double cenLig[3]= { 0.0 };
         	ReadPqr(CrdFn,nCrd,Crds);
 		SetKap(nCrd,Crds,sys.kap);
 		SclRad(nCrd,Crds,rscl);
 		SclChg(nCrd,Crds,qscl);
-        	CalCtd(nCrd,Crds,cenRec);
 		Unit2dx(nCrd,Crds,dx);
 
         	ReadPqr(ProFn,nPro,Pros);
 		SetKap(nPro,Pros,sys.kap);
 		SclRad(nPro,Pros,rscl);
-        	CalCtd(nPro,Pros,cenLig);
 		Unit2dx(nPro,Pros,dx);
 
 		printf("%d\t%f\n",l,dx);

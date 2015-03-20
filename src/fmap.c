@@ -91,7 +91,8 @@ int main(int argc, char **argv){
 #ifdef USE_MPI
 	if (rank==0){
 #endif /* USE_MPI */
-		double cenRec[3],cenLig[3];
+		double cenRec[3]= { 0.0 };
+		double cenLig[3]= { 0.0 };
         	ReadPqr(CrdFn,nCrd,Crds);
 		SetKap(nCrd,Crds,sys.kap);
 		SclRad(nCrd,Crds,rscl);

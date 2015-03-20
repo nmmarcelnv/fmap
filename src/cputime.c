@@ -1,5 +1,7 @@
 #include "cputime.h"
 
+//#undef _OPENMP
+
 #ifdef _OPENMP
         #include <omp.h>
 #endif /* _OPENMP */

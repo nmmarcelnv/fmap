@@ -59,7 +59,7 @@ void RotPro(int nAtom, ATOM atoms[], ATOM pro[], double rot[9]){
         int i;
         //#pragma omp parallel for        
         for (i=0;i<nAtom;i++){
-		pro[i]=atoms[i];
+		//pro[i]=atoms[i];
                 pro[i].xyz[0]=atoms[i].xyz[0]*rot[0]+atoms[i].xyz[1]*rot[1]+atoms[i].xyz[2]*rot[2];
                 pro[i].xyz[1]=atoms[i].xyz[0]*rot[3]+atoms[i].xyz[1]*rot[4]+atoms[i].xyz[2]*rot[5];
                 pro[i].xyz[2]=atoms[i].xyz[0]*rot[6]+atoms[i].xyz[1]*rot[7]+atoms[i].xyz[2]*rot[8];

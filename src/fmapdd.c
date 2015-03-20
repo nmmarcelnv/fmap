@@ -145,10 +145,14 @@ int main(int argc, char **argv){
         Times(true,1,7);
 	#pragma omp parallel 
 	{
+	double rot[9];
+	ATOM ProCur[nPro];
+	int j;
+	for (j=0;j<nPro;j++){
+		ProCur[j]=Pros[j];
+	}
 	#pragma omp for schedule(dynamic,1) nowait
 	for (i=0;i<nv;i++){
-		double rot[9];
-		ATOM ProCur[nPro];
 #ifdef USE_MPI
 		if (i%size==rank){
 #endif	
