@@ -1,11 +1,13 @@
 ICC=icc
 MPICC=mpicc
+TACC_FFTW3_INC=/opt/fftw/3.3.3/intel/mvapich2/ib/include
+TACC_FFTW3_LIB=/opt/fftw/3.3.3/intel/mvapich2/ib/lib
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -D DEBUG -Wall -pg
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -O3
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -pg -O3 -ftree-vectorizer-verbose=2
 CFLAGS= -I${TACC_FFTW3_INC} -c -Wall -O3 -std=c99 -openmp -DUSE_MPI #-pg -openmp_report=2
 CFLAGSMIC= -I${TACC_FFTW3_INC} -c -Wall -O3 -std=c99 -openmp -mmic #-pg -openmp_report=2
-LDFLAGS= -I${TACC_FFTW3_INC} -Wl,-rpath,${TACC_FFTW3_LIB}  -L${TACC_FFTW3_LIB} -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI #-pg
+LDFLAGS= -I${TACC_FFTW3_INC} -Wl,-rpath,${TACC_FFTW3_LIB}  -L${TACC_FFTW3_LIB} -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  #-pg
 LDFLAGSMIC= -I${TACC_FFTW3_INC} -lm -Wall -std=c99 -openmp -O3 -mmic #-pg
 SOURCES= cross.c  fftw.c  grdL.c  grdR.c  parm.c  pdb.c  pro.c  rdf.c  rot.c  score.c cputime.c
 SOURCESdd= ele.drt.c  vdw.drt.c  vol.drt.c linked.c drt.c drtlnk.c angijk.c zdread.c pdb.c rot.c score.c parm.c cputime.c 
@@ -18,7 +20,7 @@ OBJECTSddatmMIC=$(SOURCESddatm:.c=.om)
 EXECUTABLE=fmap fmap.cen fmapdd fmapdd.atm fmapdd.showpqr
 EXECUTABLEMIC=fmapdd.mic fmapdd.atm.mic fmapdd.showpqr.mic
 
-all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) $(EXECUTABLEMIC)
+all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE)
 	
 #$(EXECUTABLE): $(OBJECTS) $(EXECUTABLE).o
 #	$(CC) $(OBJECTS) $(EXECUTABLE).o $(LDFLAGS) -o $@
@@ -46,7 +48,7 @@ fmapdd.atm.mic: $(OBJECTSddatmMIC)  fmapdd.c
 
 .c.o:
 	$(MPICC) $(CFLAGS) $< -o $@
-	$(ICC) $(CFLAGSMIC) $< -o $(@)m
+#	$(ICC) $(CFLAGSMIC) $< -o $(@)m
 
 clean:
 	rm -f *.o *.om
