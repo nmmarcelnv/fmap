@@ -1,207 +1,207 @@
 vol	Sum:     2.000478e+07 Occ:  0.463098767505 Ave:      0.36805315 Net:      0.00000000
+vol	Sum:     1.996785e+07 Occ:  0.464089838180 Ave:      0.36914654 Net:      0.00000000
 vol	Sum:     1.993379e+07 Occ:  0.465004042974 Ave:      0.37015691 Net:      0.00000000
 vol	Sum:     1.994315e+07 Occ:  0.464752860087 Ave:      0.36987914 Net:      0.00000000
-vol	Sum:     1.996785e+07 Occ:  0.464089838180 Ave:      0.36914654 Net:      0.00000000
-ele	Sum:     4.051301e+07 Occ:  0.463098767505 Ave:     -0.04953840 Net:     -0.41759155
 ele	Sum:     3.809544e+07 Occ:  0.464089838180 Ave:     -0.01312694 Net:     -0.38227348
 ele	Sum:     3.851738e+07 Occ:  0.464752860087 Ave:     -0.01964539 Net:     -0.38952453
+ele	Sum:     4.051301e+07 Occ:  0.463098767505 Ave:     -0.04953840 Net:     -0.41759155
 ele	Sum:     4.309813e+07 Occ:  0.465004042974 Ave:     -0.08614395 Net:     -0.45630086
-vdw	Sum:     6.931528e+07 Occ:  0.463098767505 Ave:     -0.36735004 Net:     -0.73540320
 vdw	Sum:     6.880795e+07 Occ:  0.464089838180 Ave:     -0.36300270 Net:     -0.73214924
 vdw	Sum:     7.651518e+07 Occ:  0.464752860087 Ave:     -0.42583207 Net:     -0.79571120
+vdw	Sum:     6.931528e+07 Occ:  0.463098767505 Ave:     -0.36735004 Net:     -0.73540320
 vdw	Sum:     2.502728e+08 Occ:  0.465004042974 Ave:     -1.12712983 Net:     -1.49728675
-v12	Sum:     1.976073e+07 Occ:  0.463098767505 Ave:      0.37531711 Net:      0.00726396
-v+e	Sum:     6.646618e+08 Occ:  0.463098767505 Ave:     -1.70513862 Net:     -2.07319177
-vol	Sum:     1.998578e+07 Occ:  0.463608728615 Ave:      0.36861551 Net:      0.00000000
-ele	Sum:     4.453684e+07 Occ:  0.463608728615 Ave:     -0.10557630 Net:     -0.47419181
-vdw	Sum:     7.662093e+07 Occ:  0.463608728615 Ave:     -0.42664938 Net:     -0.79526489
-v12	Sum:     1.975119e+07 Occ:  0.463608728615 Ave:      0.37560294 Net:      0.00698743
-v+e	Sum:     1.125156e+09 Occ:  0.463608728615 Ave:     -2.01665171 Net:     -2.38526722
-vol	Sum:     2.003656e+07 Occ:  0.462245942695 Ave:      0.36711390 Net:      0.00000000
-ele	Sum:     4.256200e+07 Occ:  0.462245942695 Ave:     -0.07873611 Net:     -0.44585002
 v12	Sum:     1.971871e+07 Occ:  0.464089838180 Ave:      0.37657670 Net:      0.00743016
 v+e	Sum:     7.293840e+08 Occ:  0.464089838180 Ave:     -1.76012808 Net:     -2.12927462
-vdw	Sum:     7.009075e+07 Occ:  0.462245942695 Ave:     -0.37393388 Net:     -0.74104778
-vol	Sum:     1.997342e+07 Occ:  0.463940534793 Ave:      0.36898169 Net:      0.00000000
-v12	Sum:     1.979305e+07 Occ:  0.462245942695 Ave:      0.37435006 Net:      0.00723616
-v+e	Sum:     7.754677e+08 Occ:  0.462245942695 Ave:     -1.79638419 Net:     -2.16349809
-ele	Sum:     4.310646e+07 Occ:  0.463940534793 Ave:     -0.08625832 Net:     -0.45524001
-vol	Sum:     2.000229e+07 Occ:  0.463165515217 Ave:      0.36812673 Net:      0.00000000
-vdw	Sum:     8.943853e+07 Occ:  0.463940534793 Ave:     -0.51818689 Net:     -0.88716858
-ele	Sum:     4.090218e+07 Occ:  0.463165515217 Ave:     -0.05519597 Net:     -0.42332270
-v12	Sum:     1.969230e+07 Occ:  0.464752860087 Ave:      0.37736998 Net:      0.00749085
+v12	Sum:     1.969230e+07 Occ:  0.464752860087 Ave:      0.37736998 Net:      0.00749084
 v+e	Sum:     3.150110e+09 Occ:  0.464752860087 Ave:     -2.62589969 Net:     -2.99577883
-vdw	Sum:     7.991759e+07 Occ:  0.463165515217 Ave:     -0.45157863 Net:     -0.81970535
-v12	Sum:     1.973000e+07 Occ:  0.463940534793 Ave:      0.37623800 Net:      0.00725631
-v+e	Sum:     2.303294e+09 Occ:  0.463940534793 Ave:     -2.44061462 Net:     -2.80959631
-vol	Sum:     1.996512e+07 Occ:  0.464163080845 Ave:      0.36922742 Net:      0.00000000
-v12	Sum:     1.975515e+07 Occ:  0.463165515217 Ave:      0.37548407 Net:      0.00735734
-v+e	Sum:     8.519759e+08 Occ:  0.463165515217 Ave:     -1.85206599 Net:     -2.22019272
-ele	Sum:     3.815724e+07 Occ:  0.464163080845 Ave:     -0.01408618 Net:     -0.38331361
-vol	Sum:     1.996899e+07 Occ:  0.464059268963 Ave:      0.36911278 Net:      0.00000000
-vdw	Sum:     8.174123e+07 Occ:  0.464163080845 Ave:     -0.46493068 Net:     -0.83415810
-vol	Sum:     1.995996e+07 Occ:  0.464301595096 Ave:      0.36938042 Net:      0.00000000
-ele	Sum:     3.674961e+07 Occ:  0.464059268963 Ave:      0.00815763 Net:     -0.36095515
-v12	Sum:     1.971366e+07 Occ:  0.464163080845 Ave:      0.37672824 Net:      0.00750081
-v+e	Sum:     1.241747e+09 Occ:  0.464163080845 Ave:     -2.07499986 Net:     -2.44422728
-ele	Sum:     4.015182e+07 Occ:  0.464301595096 Ave:     -0.04423888 Net:     -0.41361930
-vdw	Sum:     7.724991e+07 Occ:  0.464059268963 Ave:     -0.43148748 Net:     -0.80060026
-vol	Sum:     1.996650e+07 Occ:  0.464126258223 Ave:      0.36918676 Net:      0.00000000
-vdw	Sum:     4.077876e+08 Occ:  0.464301595096 Ave:     -1.41603454 Net:     -1.78541496
-ele	Sum:     4.234244e+07 Occ:  0.464126258223 Ave:     -0.07567547 Net:     -0.44486223
-v12	Sum:     1.972657e+07 Occ:  0.464059268963 Ave:      0.37634085 Net:      0.00722806
-v+e	Sum:     6.711255e+08 Occ:  0.464059268963 Ave:     -1.71086570 Net:     -2.07997848
-v12	Sum:     1.971933e+07 Occ:  0.464301595096 Ave:      0.37655809 Net:      0.00717767
-v+e	Sum:     6.632241e+10 Occ:  0.464301595096 Ave:     -4.42911090 Net:     -4.79849132
-sav	Sum:     6.975513e+10 Occ:  0.000000000000 Ave:     -4.45897405 Net:     -4.45897405
-Clck local Init:	           0.680 s. (  0.11035378 %)
-Time local Init:	           0.733 s. (  0.46002119 %)
-Clck local InitRec1:	         414.500 s. ( 67.26712106 %)
-Time local InitRec1:	         106.374 s. ( 66.74203819 %)
-Clck local InitRecs:	         396.380 s. ( 64.32651736 %)
-Time local InitRecs:	         101.763 s. ( 63.84898980 %)
-Clck local InitLigs:	           0.110 s. (  0.01785135 %)
-Time local InitLigs:	           0.027 s. (  0.01725318 %)
-Clck local FFTForw:	         108.710 s. ( 17.64199935 %)
-Time local FFTForw:	          28.205 s. ( 17.69689262 %)
-Clck local FFTBack:	          91.270 s. ( 14.81174943 %)
-Time local FFTBack:	          23.672 s. ( 14.85225473 %)
-Clck local FFTAdd:	           1.890 s. (  0.30671860 %)
-Time local FFTAdd:	           0.496 s. (  0.31111645 %)
-Clck local MAJOR:	         614.820 s. ( 99.77604674 %)
-Time local MAJOR:	         158.465 s. ( 99.42576160 %)
-Clck local MPIComm:	           0.510 s. (  0.08276534 %)
-Time local MPIComm:	           0.727 s. (  0.45620259 %)
-Clck local Total:	         616.200 s. (100.00000000 %)
-Time local Total:	         159.381 s. (100.00000000 %)
-vdw	Sum:     7.820894e+07 Occ:  0.464126258223 Ave:     -0.43878899 Net:     -0.80797575
+v12	Sum:     1.976073e+07 Occ:  0.463098767505 Ave:      0.37531711 Net:      0.00726396
+v+e	Sum:     6.646618e+08 Occ:  0.463098767505 Ave:     -1.70513862 Net:     -2.07319177
 v12	Sum:     1.969132e+07 Occ:  0.465004042974 Ave:      0.37739929 Net:      0.00724238
 v+e	Sum:     6.099219e+09 Occ:  0.465004042974 Ave:     -3.01690336 Net:     -3.38706027
-vol	Sum:     2.000508e+07 Occ:  0.463090742750 Ave:      0.36804431 Net:      0.00000000
+vol	Sum:     1.997342e+07 Occ:  0.463940534793 Ave:      0.36898169 Net:      0.00000000
+vol	Sum:     1.996512e+07 Occ:  0.464163080845 Ave:      0.36922742 Net:      0.00000000
+vol	Sum:     1.998578e+07 Occ:  0.463608728615 Ave:      0.36861551 Net:      0.00000000
+vol	Sum:     1.998749e+07 Occ:  0.463562834530 Ave:      0.36856488 Net:      0.00000000
+ele	Sum:     4.310646e+07 Occ:  0.463940534793 Ave:     -0.08625832 Net:     -0.45524001
+ele	Sum:     3.815724e+07 Occ:  0.464163080845 Ave:     -0.01408618 Net:     -0.38331361
+ele	Sum:     4.453684e+07 Occ:  0.463608728615 Ave:     -0.10557630 Net:     -0.47419181
+ele	Sum:     4.639594e+07 Occ:  0.463562834530 Ave:     -0.12977741 Net:     -0.49834229
+vdw	Sum:     8.943853e+07 Occ:  0.463940534793 Ave:     -0.51818689 Net:     -0.88716858
+vdw	Sum:     8.174123e+07 Occ:  0.464163080845 Ave:     -0.46493068 Net:     -0.83415810
+vdw	Sum:     7.662093e+07 Occ:  0.463608728615 Ave:     -0.42664938 Net:     -0.79526489
+vdw	Sum:     7.759980e+07 Occ:  0.463562834530 Ave:     -0.43416182 Net:     -0.80272669
+v12	Sum:     1.973000e+07 Occ:  0.463940534793 Ave:      0.37623800 Net:      0.00725631
+v+e	Sum:     2.303294e+09 Occ:  0.463940534793 Ave:     -2.44061462 Net:     -2.80959631
+v12	Sum:     1.971366e+07 Occ:  0.464163080845 Ave:      0.37672823 Net:      0.00750081
+v+e	Sum:     1.241747e+09 Occ:  0.464163080845 Ave:     -2.07499986 Net:     -2.44422728
+v12	Sum:     1.975119e+07 Occ:  0.463608728615 Ave:      0.37560294 Net:      0.00698743
+v+e	Sum:     1.125156e+09 Occ:  0.463608728615 Ave:     -2.01665171 Net:     -2.38526722
+v12	Sum:     1.973859e+07 Occ:  0.463562834530 Ave:      0.37598043 Net:      0.00741555
+v+e	Sum:     4.835362e+09 Occ:  0.463562834530 Ave:     -2.87948899 Net:     -3.24805387
+vol	Sum:     1.996899e+07 Occ:  0.464059268963 Ave:      0.36911278 Net:      0.00000000
+vol	Sum:     1.996650e+07 Occ:  0.464126258223 Ave:      0.36918676 Net:      0.00000000
+vol	Sum:     2.003656e+07 Occ:  0.462245942695 Ave:      0.36711390 Net:      0.00000000
+vol	Sum:     1.993501e+07 Occ:  0.464971326664 Ave:      0.37012073 Net:      0.00000000
+ele	Sum:     3.674961e+07 Occ:  0.464059268963 Ave:      0.00815763 Net:     -0.36095515
+ele	Sum:     4.234244e+07 Occ:  0.464126258223 Ave:     -0.07567547 Net:     -0.44486223
+ele	Sum:     4.256200e+07 Occ:  0.462245942695 Ave:     -0.07873611 Net:     -0.44585002
+ele	Sum:     4.350233e+07 Occ:  0.464971326664 Ave:     -0.09166821 Net:     -0.46178893
+vdw	Sum:     7.724991e+07 Occ:  0.464059268963 Ave:     -0.43148748 Net:     -0.80060026
+vdw	Sum:     7.820894e+07 Occ:  0.464126258223 Ave:     -0.43878899 Net:     -0.80797575
+vdw	Sum:     7.009075e+07 Occ:  0.462245942695 Ave:     -0.37393388 Net:     -0.74104778
+vdw	Sum:     8.335604e+07 Occ:  0.464971326664 Ave:     -0.47650745 Net:     -0.84662817
+v12	Sum:     1.972657e+07 Occ:  0.464059268963 Ave:      0.37634085 Net:      0.00722806
+v+e	Sum:     6.711255e+08 Occ:  0.464059268963 Ave:     -1.71086570 Net:     -2.07997848
 v12	Sum:     1.972566e+07 Occ:  0.464126258223 Ave:      0.37636838 Net:      0.00718162
 v+e	Sum:     1.159765e+09 Occ:  0.464126258223 Ave:     -2.03457988 Net:     -2.40376664
-vol	Sum:     1.998749e+07 Occ:  0.463562834530 Ave:      0.36856488 Net:      0.00000000
-ele	Sum:     4.561580e+07 Occ:  0.463090742750 Ave:     -0.11974211 Net:     -0.48778642
-vol	Sum:     1.994991e+07 Occ:  0.464571296648 Ave:      0.36967843 Net:      0.00000000
-ele	Sum:     4.639594e+07 Occ:  0.463562834530 Ave:     -0.12977741 Net:     -0.49834229
-vdw	Sum:     6.484456e+07 Occ:  0.463090742750 Ave:     -0.32789459 Net:     -0.69593890
-ele	Sum:     4.589448e+07 Occ:  0.464571296648 Ave:     -0.12334646 Net:     -0.49302489
-vdw	Sum:     7.759980e+07 Occ:  0.463562834530 Ave:     -0.43416182 Net:     -0.80272669
-v12	Sum:     1.976676e+07 Occ:  0.463090742750 Ave:      0.37513637 Net:      0.00709207
-v+e	Sum:     8.219529e+08 Occ:  0.463090742750 Ave:     -1.83083575 Net:     -2.19888006
-vdw	Sum:     8.278336e+07 Occ:  0.464571296648 Ave:     -0.47242769 Net:     -0.84210611
-v12	Sum:     1.973859e+07 Occ:  0.463562834530 Ave:      0.37598043 Net:      0.00741555
-v+e	Sum:     4.835362e+09 Occ:  0.463562834530 Ave:     -2.87948898 Net:     -3.24805386
-vol	Sum:     1.994609e+07 Occ:  0.464674034984 Ave:      0.36979199 Net:      0.00000000
-v12	Sum:     1.970077e+07 Occ:  0.464571296648 Ave:      0.37711534 Net:      0.00743691
-v+e	Sum:     1.915007e+09 Occ:  0.464571296648 Ave:     -2.33136068 Net:     -2.70103911
-vol	Sum:     1.993501e+07 Occ:  0.464971326664 Ave:      0.37012073 Net:      0.00000000
-ele	Sum:     5.088128e+07 Occ:  0.464674034984 Ave:     -0.18438878 Net:     -0.55418078
-vol	Sum:     1.999539e+07 Occ:  0.463350862905 Ave:      0.36833108 Net:      0.00000000
-ele	Sum:     4.350233e+07 Occ:  0.464971326664 Ave:     -0.09166821 Net:     -0.46178893
-vdw	Sum:     2.449359e+08 Occ:  0.464674034984 Ave:     -1.11437398 Net:     -1.48416598
-ele	Sum:     3.901867e+07 Occ:  0.463350862905 Ave:     -0.02729765 Net:     -0.39562873
-vdw	Sum:     8.335604e+07 Occ:  0.464971326664 Ave:     -0.47650745 Net:     -0.84662817
-v12	Sum:     1.970366e+07 Occ:  0.464674034984 Ave:      0.37702871 Net:      0.00723672
-v+e	Sum:     1.393095e+11 Occ:  0.464674034984 Ave:     -4.86831340 Net:     -5.23810539
-sav	Sum:     1.438507e+11 Occ:  0.000000000000 Ave:     -4.88729668 Net:     -4.88729668
-Clck local Init:	           0.770 s. (  0.11585393 %)
-Time local Init:	           0.770 s. (  0.43526244 %)
-Clck local InitRec1:	         465.120 s. ( 69.98179438 %)
-Time local InitRec1:	         122.494 s. ( 69.27605140 %)
-Clck local InitRecs:	         445.120 s. ( 66.97260130 %)
-Time local InitRecs:	         116.978 s. ( 66.15633670 %)
-Clck local InitLigs:	           0.210 s. (  0.03159653 %)
-Time local InitLigs:	           0.061 s. (  0.03462261 %)
-Clck local FFTForw:	         107.500 s. ( 16.17441283 %)
-Time local FFTForw:	          28.953 s. ( 16.37446189 %)
-Clck local FFTBack:	          90.730 s. ( 13.65120443 %)
-Time local FFTBack:	          24.554 s. ( 13.88659187 %)
-Clck local FFTAdd:	           1.710 s. (  0.25728601 %)
-Time local FFTAdd:	           0.448 s. (  0.25320282 %)
-Clck local MAJOR:	         663.190 s. ( 99.78333810 %)
-Time local MAJOR:	         175.883 s. ( 99.47011751 %)
-Clck local MPIComm:	           0.510 s. (  0.07673442 %)
-Time local MPIComm:	           0.709 s. (  0.40107872 %)
-Clck local Total:	         664.630 s. (100.00000000 %)
-Time local Total:	         176.820 s. (100.00000000 %)
-vdw	Sum:     1.329908e+08 Occ:  0.463350862905 Ave:     -0.75296316 Net:     -1.12129424
+v12	Sum:     1.979305e+07 Occ:  0.462245942695 Ave:      0.37435007 Net:      0.00723616
+v+e	Sum:     7.754677e+08 Occ:  0.462245942695 Ave:     -1.79638419 Net:     -2.16349809
 v12	Sum:     1.969287e+07 Occ:  0.464971326664 Ave:      0.37735275 Net:      0.00723202
 v+e	Sum:     9.981074e+08 Occ:  0.464971326664 Ave:     -1.94574653 Net:     -2.31586726
-v12	Sum:     1.974250e+07 Occ:  0.463350862905 Ave:      0.37586329 Net:      0.00753221
-v+e	Sum:     1.798892e+09 Occ:  0.463350862905 Ave:     -2.29434441 Net:     -2.66267549
-sav	Sum:     9.280895e+09 Occ:  0.000000000000 Ave:     -3.26533156 Net:     -3.26533156
-Clck local Init:	           0.730 s. (  0.10762676 %)
-Time local Init:	           0.721 s. (  0.39941327 %)
-Clck local InitRec1:	         498.340 s. ( 73.47221608 %)
-Time local InitRec1:	         134.447 s. ( 74.52251231 %)
-Clck local InitRecs:	         480.090 s. ( 70.78154717 %)
-Time local InitRecs:	         129.572 s. ( 71.82029639 %)
-Clck local InitLigs:	           0.130 s. (  0.01916641 %)
-Time local InitLigs:	           0.038 s. (  0.02114159 %)
-Clck local FFTForw:	          97.370 s. ( 14.35564008 %)
-Time local FFTForw:	          24.801 s. ( 13.74696622 %)
-Clck local FFTBack:	          81.390 s. ( 11.99964616 %)
-Time local FFTBack:	          20.574 s. ( 11.40404626 %)
-Clck local FFTAdd:	           1.770 s. (  0.26095803 %)
-Time local FFTAdd:	           0.451 s. (  0.24975664 %)
-Clck local MAJOR:	         676.880 s. ( 99.79506686 %)
-Time local MAJOR:	         179.525 s. ( 99.50916389 %)
-Clck local MPIComm:	           0.710 s. (  0.10467808 %)
-Time local MPIComm:	           0.817 s. (  0.45280219 %)
-Clck local Total:	         678.270 s. (100.00000000 %)
-Time local Total:	         180.411 s. (100.00000000 %)
+vol	Sum:     2.000508e+07 Occ:  0.463090742750 Ave:      0.36804431 Net:      0.00000000
+vol	Sum:     1.994991e+07 Occ:  0.464571296648 Ave:      0.36967843 Net:      0.00000000
+vol	Sum:     2.000229e+07 Occ:  0.463165515217 Ave:      0.36812673 Net:      0.00000000
 vol	Sum:     1.995051e+07 Occ:  0.464555327654 Ave:      0.36966078 Net:      0.00000000
+ele	Sum:     4.561580e+07 Occ:  0.463090742750 Ave:     -0.11974211 Net:     -0.48778642
+ele	Sum:     4.589448e+07 Occ:  0.464571296648 Ave:     -0.12334646 Net:     -0.49302489
+ele	Sum:     4.090218e+07 Occ:  0.463165515217 Ave:     -0.05519597 Net:     -0.42332270
 ele	Sum:     4.391463e+07 Occ:  0.464555327654 Ave:     -0.09725043 Net:     -0.46691121
+vdw	Sum:     6.484456e+07 Occ:  0.463090742750 Ave:     -0.32789459 Net:     -0.69593890
+vdw	Sum:     8.278336e+07 Occ:  0.464571296648 Ave:     -0.47242769 Net:     -0.84210611
+vdw	Sum:     7.991759e+07 Occ:  0.463165515217 Ave:     -0.45157863 Net:     -0.81970535
 vdw	Sum:     2.698646e+08 Occ:  0.464555327654 Ave:     -1.17173182 Net:     -1.54139260
+v12	Sum:     1.976676e+07 Occ:  0.463090742750 Ave:      0.37513637 Net:      0.00709206
+v+e	Sum:     8.219529e+08 Occ:  0.463090742750 Ave:     -1.83083575 Net:     -2.19888006
+v12	Sum:     1.970077e+07 Occ:  0.464571296648 Ave:      0.37711533 Net:      0.00743690
+v12	Sum:     1.975515e+07 Occ:  0.463165515217 Ave:      0.37548407 Net:      0.00735734
+v+e	Sum:     1.915007e+09 Occ:  0.464571296648 Ave:     -2.33136069 Net:     -2.70103911
+v+e	Sum:     8.519759e+08 Occ:  0.463165515217 Ave:     -1.85206599 Net:     -2.22019272
 v12	Sum:     1.970744e+07 Occ:  0.464555327654 Ave:      0.37691507 Net:      0.00725429
 v+e	Sum:     1.293774e+09 Occ:  0.464555327654 Ave:     -2.09928880 Net:     -2.46894958
+vol	Sum:     1.994609e+07 Occ:  0.464674034984 Ave:      0.36979199 Net:      0.00000000
+vol	Sum:     1.999539e+07 Occ:  0.463350862905 Ave:      0.36833108 Net:      0.00000000
+vol	Sum:     1.995996e+07 Occ:  0.464301595096 Ave:      0.36938042 Net:      0.00000000
 vol	Sum:     2.001743e+07 Occ:  0.462759178119 Ave:      0.36767897 Net:      0.00000000
+ele	Sum:     5.088128e+07 Occ:  0.464674034984 Ave:     -0.18438878 Net:     -0.55418078
+ele	Sum:     3.901867e+07 Occ:  0.463350862905 Ave:     -0.02729765 Net:     -0.39562873
+ele	Sum:     4.015182e+07 Occ:  0.464301595096 Ave:     -0.04423888 Net:     -0.41361930
 ele	Sum:     4.059754e+07 Occ:  0.462759178119 Ave:     -0.05077194 Net:     -0.41845091
+vdw	Sum:     2.449359e+08 Occ:  0.464674034984 Ave:     -1.11437398 Net:     -1.48416598
+vdw	Sum:     1.329908e+08 Occ:  0.463350862905 Ave:     -0.75296316 Net:     -1.12129424
+vdw	Sum:     4.077876e+08 Occ:  0.464301595096 Ave:     -1.41603454 Net:     -1.78541496
 vdw	Sum:     9.682731e+07 Occ:  0.462759178119 Ave:     -0.56516106 Net:     -0.93284003
-v12	Sum:     1.977887e+07 Occ:  0.462759178119 Ave:      0.37477408 Net:      0.00709510
+v12	Sum:     1.970366e+07 Occ:  0.464674034984 Ave:      0.37702871 Net:      0.00723672
+v+e	Sum:     1.393095e+11 Occ:  0.464674034984 Ave:     -4.86831340 Net:     -5.23810539
+sav	Sum:     1.438507e+11 Occ:  0.000000000000 Ave:     -4.88729667 Net:     -4.88729667
+Clck local Init:	           0.600 s. (  0.10192295 %)
+Time local Init:	           0.599 s. (  0.40583505 %)
+Clck local InitRec1:	         432.740 s. ( 73.51022627 %)
+Time local InitRec1:	         108.165 s. ( 73.27982716 %)
+Clck local InitRecs:	         419.560 s. ( 71.27131888 %)
+Time local InitRecs:	         104.868 s. ( 71.04670379 %)
+Clck local InitLigs:	           0.110 s. (  0.01868587 %)
+Time local InitLigs:	           0.023 s. (  0.01588145 %)
+Clck local FFTForw:	          77.690 s. ( 13.19732282 %)
+Time local FFTForw:	          19.423 s. ( 13.15861487 %)
+Clck local FFTBack:	          65.140 s. ( 11.06543453 %)
+Time local FFTBack:	          16.280 s. ( 11.02917902 %)
+Clck local FFTAdd:	           2.520 s. (  0.42807637 %)
+Time local FFTAdd:	           0.619 s. (  0.41948697 %)
+Clck local MAJOR:	         587.120 s. ( 99.73500034 %)
+Time local MAJOR:	         146.766 s. ( 99.43182903 %)
+Clck local MPIComm:	           0.500 s. (  0.08493579 %)
+Time local MPIComm:	           0.585 s. (  0.39618894 %)
+Clck local Total:	         588.680 s. (100.00000000 %)
+Time local Total:	         147.605 s. (100.00000000 %)
+v12	Sum:     1.971933e+07 Occ:  0.464301595096 Ave:      0.37655809 Net:      0.00717767
+v12	Sum:     1.974250e+07 Occ:  0.463350862905 Ave:      0.37586329 Net:      0.00753221
+v+e	Sum:     6.632240e+10 Occ:  0.464301595096 Ave:     -4.42911089 Net:     -4.79849131
+v+e	Sum:     1.798892e+09 Occ:  0.463350862905 Ave:     -2.29434441 Net:     -2.66267549
+v12	Sum:     1.977887e+07 Occ:  0.462759178119 Ave:      0.37477407 Net:      0.00709510
 v+e	Sum:     1.209382e+09 Occ:  0.462759178119 Ave:     -2.05937081 Net:     -2.42704978
-sav	Sum:     1.445132e+10 Occ:  0.000000000000 Ave:     -3.52738879 Net:     -3.52738879
-Clck local Init:	           0.650 s. (  0.09034679 %)
-Time local Init:	           0.722 s. (  0.36753573 %)
-Clck local InitRec1:	         538.580 s. ( 74.85996247 %)
-Time local InitRec1:	         149.958 s. ( 76.36386652 %)
-Clck local InitRecs:	         517.740 s. ( 71.96330530 %)
-Time local InitRecs:	         144.041 s. ( 73.35108580 %)
-Clck local InitLigs:	           0.190 s. (  0.02640906 %)
-Time local InitLigs:	           0.051 s. (  0.02608038 %)
-Clck local FFTForw:	         101.520 s. ( 14.11077907 %)
-Time local FFTForw:	          26.396 s. ( 13.44154892 %)
-Clck local FFTBack:	          81.200 s. ( 11.28639933 %)
-Time local FFTBack:	          20.562 s. ( 10.47084247 %)
-Clck local FFTAdd:	           1.690 s. (  0.23490166 %)
-Time local FFTAdd:	           0.425 s. (  0.21639773 %)
-Clck local MAJOR:	         718.140 s. ( 99.81791646 %)
-Time local MAJOR:	         195.486 s. ( 99.54877090 %)
-Clck local MPIComm:	           0.480 s. (  0.06671763 %)
-Time local MPIComm:	           0.688 s. (  0.35047512 %)
-Clck local Total:	         719.450 s. (100.00000000 %)
-Time local Total:	         196.372 s. (100.00000000 %)
-Clck global Init:	           2.830 s. (  0.10565418 %)
-Time global Init:	           2.945 s. (  0.41307236 %)
-Clck global InitRec1:	        1916.540 s. ( 71.55139908 %)
-Time global InitRec1:	         513.272 s. ( 71.98929267 %)
-Clck global InitRecs:	        1839.330 s. ( 68.66886935 %)
-Time global InitRecs:	         492.354 s. ( 69.05534153 %)
-Clck global InitLigs:	           0.640 s. (  0.02389352 %)
-Time global InitLigs:	           0.178 s. (  0.02497592 %)
-Clck global FFTForw:	         415.100 s. ( 15.49719064 %)
-Time global FFTForw:	         108.355 s. ( 15.19743373 %)
-Clck global FFTBack:	         344.590 s. ( 12.86479625 %)
-Time global FFTBack:	          89.362 s. ( 12.53350489 %)
-Clck global FFTAdd:	           7.060 s. (  0.26357544 %)
-Time global FFTAdd:	           1.819 s. (  0.25513986 %)
-Clck global MAJOR:	        2673.030 s. ( 99.79391835 %)
-Time global MAJOR:	         709.360 s. ( 99.49174531 %)
-Clck global MPIComm:	           2.210 s. (  0.08250733 %)
-Time global MPIComm:	           2.941 s. (  0.41255164 %)
-Clck global Total:	        2678.550 s. (100.00000000 %)
-Time global Total:	         712.984 s. (100.00000000 %)
-real 200.18
-user 0.65
-sys 0.24
+sav	Sum:     6.975513e+10 Occ:  0.000000000000 Ave:     -4.45897404 Net:     -4.45897404
+Clck local Init:	           0.590 s. (  0.09965375 %)
+Time local Init:	           0.599 s. (  0.40349082 %)
+Clck local InitRec1:	         436.830 s. ( 73.78261971 %)
+Time local InitRec1:	         109.177 s. ( 73.55600930 %)
+Clck local InitRecs:	         423.690 s. ( 71.56321257 %)
+Time local InitRecs:	         105.893 s. ( 71.34347658 %)
+Clck local InitLigs:	           0.100 s. (  0.01689047 %)
+Time local InitLigs:	           0.023 s. (  0.01560818 %)
+Clck local FFTForw:	          76.660 s. ( 12.94823072 %)
+Time local FFTForw:	          19.160 s. ( 12.90853040 %)
+Clck local FFTBack:	          65.330 s. ( 11.03454100 %)
+Time local FFTBack:	          16.333 s. ( 11.00399412 %)
+Clck local FFTAdd:	           2.470 s. (  0.41719449 %)
+Time local FFTAdd:	           0.620 s. (  0.41788929 %)
+Clck local MAJOR:	         590.510 s. ( 99.73988683 %)
+Time local MAJOR:	         147.588 s. ( 99.43517655 %)
+Clck local MPIComm:	           0.470 s. (  0.07938519 %)
+Time local MPIComm:	           0.585 s. (  0.39442771 %)
+Clck local Total:	         592.050 s. (100.00000000 %)
+Time local Total:	         148.426 s. (100.00000000 %)
+sav	Sum:     9.280895e+09 Occ:  0.000000000000 Ave:     -3.26533156 Net:     -3.26533156
+Clck local Init:	           0.680 s. (  0.11490563 %)
+Time local Init:	           0.599 s. (  0.40320560 %)
+Clck local InitRec1:	         433.730 s. ( 73.29120127 %)
+Time local InitRec1:	         108.491 s. ( 73.08103621 %)
+Clck local InitRecs:	         420.160 s. ( 70.99815813 %)
+Time local InitRecs:	         105.092 s. ( 70.79161675 %)
+Clck local InitLigs:	           0.080 s. (  0.01351831 %)
+Time local InitLigs:	           0.023 s. (  0.01534442 %)
+Clck local FFTForw:	          78.250 s. ( 13.22259585 %)
+Time local FFTForw:	          19.567 s. ( 13.18074416 %)
+Clck local FFTBack:	          66.770 s. ( 11.28271853 %)
+Time local FFTBack:	          16.704 s. ( 11.25182119 %)
+Clck local FFTAdd:	           2.520 s. (  0.42582673 %)
+Time local FFTAdd:	           0.630 s. (  0.42465195 %)
+Clck local MAJOR:	         590.150 s. ( 99.72287467 %)
+Time local MAJOR:	         147.614 s. ( 99.43528796 %)
+Clck local MPIComm:	           0.730 s. (  0.12335457 %)
+Time local MPIComm:	           0.754 s. (  0.50762517 %)
+Clck local Total:	         591.790 s. (100.00000000 %)
+Time local Total:	         148.453 s. (100.00000000 %)
+sav	Sum:     1.445132e+10 Occ:  0.000000000000 Ave:     -3.52738880 Net:     -3.52738880
+Clck local Init:	           0.600 s. (  0.10109860 %)
+Time local Init:	           0.599 s. (  0.40262894 %)
+Clck local InitRec1:	         437.570 s. ( 73.72952753 %)
+Time local InitRec1:	         109.384 s. ( 73.50879746 %)
+Clck local InitRecs:	         424.230 s. ( 71.48176855 %)
+Time local InitRecs:	         106.046 s. ( 71.26521299 %)
+Clck local InitLigs:	           0.090 s. (  0.01516479 %)
+Time local InitLigs:	           0.024 s. (  0.01624449 %)
+Clck local FFTForw:	          77.350 s. ( 13.03329514 %)
+Time local FFTForw:	          19.327 s. ( 12.98816008 %)
+Clck local FFTBack:	          65.600 s. ( 11.05344746 %)
+Time local FFTBack:	          16.392 s. ( 11.01569957 %)
+Clck local FFTAdd:	           2.510 s. (  0.42292916 %)
+Time local FFTAdd:	           0.626 s. (  0.42057436 %)
+Clck local MAJOR:	         591.920 s. ( 99.73714363 %)
+Time local MAJOR:	         147.966 s. ( 99.43677653 %)
+Clck local MPIComm:	           0.500 s. (  0.08424884 %)
+Time local MPIComm:	           0.586 s. (  0.39349017 %)
+Clck local Total:	         593.480 s. (100.00000000 %)
+Time local Total:	         148.805 s. (100.00000000 %)
+Clck global Init:	           2.470 s. (  0.10439560 %)
+Time global Init:	           2.396 s. (  0.40378651 %)
+Clck global InitRec1:	        1740.870 s. ( 73.57861369 %)
+Time global InitRec1:	         435.216 s. ( 73.35660845 %)
+Clck global InitRecs:	        1687.640 s. ( 71.32882502 %)
+Time global InitRecs:	         421.899 s. ( 71.11192616 %)
+Clck global InitLigs:	           0.380 s. (  0.01606086 %)
+Time global InitLigs:	           0.094 s. (  0.01576976 %)
+Clck global FFTForw:	         309.950 s. ( 13.10016906 %)
+Time global FFTForw:	          77.477 s. ( 13.05883471 %)
+Clck global FFTBack:	         262.840 s. ( 11.10904480 %)
+Time global FFTBack:	          65.708 s. ( 11.07520713 %)
+Clck global FFTAdd:	          10.020 s. (  0.42349958 %)
+Time global FFTAdd:	           2.496 s. (  0.42065238 %)
+Clck global MAJOR:	        2359.700 s. ( 99.73372781 %)
+Time global MAJOR:	         589.935 s. ( 99.43477289 %)
+Clck global MPIComm:	           2.200 s. (  0.09298394 %)
+Time global MPIComm:	           2.509 s. (  0.42295504 %)
+Clck global Total:	        2366.000 s. (100.00000000 %)
+Time global Total:	         593.289 s. (100.00000000 %)
+real 149.38
+user 0.12
+sys 0.04

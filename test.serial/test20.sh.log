@@ -16,34 +16,34 @@
 + head -20 ../dat/3600.ang.dat
 + ../src/fmap crowd.vdw 1.vdw 334 0.5970749 0.05 1.08 1.08 298 ang.dat.20 2.0 0.2 -9
 
-real	2m47.800s
-user	41m53.844s
-sys	0m47.059s
+real	1m12.653s
+user	18m23.628s
+sys	0m50.994s
 + grep -e Clck -e Time test20.sh.err
-Clck local Init:	           3.450 s. (  0.13472563 %)
-Time local Init:	           0.420 s. (  0.25059721 %)
-Clck local InitRec1:	         658.980 s. ( 25.73376654 %)
-Time local InitRec1:	          43.995 s. ( 26.24822523 %)
-Clck local InitRecs:	         600.280 s. ( 23.44147831 %)
-Time local InitRecs:	          40.070 s. ( 23.90643311 %)
-Clck local InitLigs:	           4.610 s. (  0.18002468 %)
-Time local InitLigs:	           0.310 s. (  0.18499998 %)
-Clck local FFTForw:	         931.780 s. ( 36.38685390 %)
-Time local FFTForw:	          60.567 s. ( 36.13483706 %)
-Clck local FFTBack:	         895.940 s. ( 34.98726940 %)
-Time local FFTBack:	          58.168 s. ( 34.70380972 %)
-Clck local FFTAdd:	          17.120 s. (  0.66855152 %)
-Time local FFTAdd:	           1.112 s. (  0.66327999 %)
-Clck local MAJOR:	        2555.810 s. ( 99.80669801 %)
-Time local MAJOR:	         167.098 s. ( 99.69286305 %)
+Clck local Init:	           0.420 s. (  0.03637655 %)
+Time local Init:	           0.414 s. (  0.57004065 %)
+Clck local InitRec1:	         382.720 s. ( 33.14769745 %)
+Time local InitRec1:	          23.925 s. ( 32.97398414 %)
+Clck local InitRecs:	         366.070 s. ( 31.70562711 %)
+Time local InitRecs:	          22.880 s. ( 31.53332873 %)
+Clck local InitLigs:	           2.150 s. (  0.18621329 %)
+Time local InitLigs:	           0.145 s. (  0.19960737 %)
+Clck local FFTForw:	         325.880 s. ( 28.22473779 %)
+Time local FFTForw:	          20.361 s. ( 28.06217723 %)
+Clck local FFTBack:	         314.960 s. ( 27.27894751 %)
+Time local FFTBack:	          19.683 s. ( 27.12703865 %)
+Clck local FFTAdd:	          16.980 s. (  1.47065192 %)
+Time local FFTAdd:	           1.066 s. (  1.46853981 %)
+Clck local MAJOR:	        1152.120 s. ( 99.78607125 %)
+Time local MAJOR:	          72.015 s. ( 99.25295588 %)
 Clck local MPIComm:	           0.000 s. (  0.00000000 %)
-Time local MPIComm:	           0.000 s. (  0.00000057 %)
-Clck local Total:	        2560.760 s. (100.00000000 %)
-Time local Total:	         167.613 s. (100.00000000 %)
+Time local MPIComm:	           0.000 s. (  0.00000263 %)
+Clck local Total:	        1154.590 s. (100.00000000 %)
+Time local Total:	          72.557 s. (100.00000000 %)
 + grep -v '^  0.000000  0.000000  0.000000' test20.sh.out
 + ../src/fmapdd fmap.out 0.05 298 2.0 0.2
-Clck local Init:	           1.120 s. (  0.89292833 %)
-Time local Init:	           0.242 s. (  2.83172996 %)
+Clck local Init:	           0.460 s. (  0.22169743 %)
+Time local Init:	           0.218 s. (  1.65852891 %)
 Clck local InitRec1:	           0.000 s. (  0.00000000 %)
 Time local InitRec1:	           0.000 s. (  0.00000000 %)
 Clck local InitRecs:	           0.000 s. (  0.00000000 %)
@@ -56,38 +56,13 @@ Clck local FFTBack:	           0.000 s. (  0.00000000 %)
 Time local FFTBack:	           0.000 s. (  0.00000000 %)
 Clck local FFTAdd:	           0.000 s. (  0.00000000 %)
 Time local FFTAdd:	           0.000 s. (  0.00000000 %)
-Clck local MAJOR:	         124.230 s. ( 99.04329108 %)
-Time local MAJOR:	           8.292 s. ( 97.10127480 %)
+Clck local MAJOR:	         206.980 s. ( 99.75420502 %)
+Time local MAJOR:	          12.935 s. ( 98.31954625 %)
 Clck local MPIComm:	           0.000 s. (  0.00000000 %)
 Time local MPIComm:	           0.000 s. (  0.00000000 %)
-Clck local Total:	         125.430 s. (100.00000000 %)
-Time local Total:	           8.540 s. (100.00000000 %)
+Clck local Total:	         207.490 s. (100.00000000 %)
+Time local Total:	          13.156 s. (100.00000000 %)
 
-real	0m8.580s
-user	2m5.316s
-sys	0m0.141s
-+ ../src/fmapdd.mic fmap.out 0.05 298 2.0 0.2
-Clck local Init:	          71.370 s. (  1.01666667 %)
-Time local Init:	           2.936 s. (  7.61647068 %)
-Clck local InitRec1:	           0.000 s. (  0.00000000 %)
-Time local InitRec1:	           0.000 s. (  0.00000000 %)
-Clck local InitRecs:	           0.000 s. (  0.00000000 %)
-Time local InitRecs:	           0.000 s. (  0.00000000 %)
-Clck local InitLigs:	           0.000 s. (  0.00000000 %)
-Time local InitLigs:	           0.000 s. (  0.00000000 %)
-Clck local FFTForw:	           0.000 s. (  0.00000000 %)
-Time local FFTForw:	           0.000 s. (  0.00000000 %)
-Clck local FFTBack:	           0.000 s. (  0.00000000 %)
-Time local FFTBack:	           0.000 s. (  0.00000000 %)
-Clck local FFTAdd:	           0.000 s. (  0.00000000 %)
-Time local FFTAdd:	           0.000 s. (  0.00000000 %)
-Clck local MAJOR:	        6933.060 s. ( 98.76153846 %)
-Time local MAJOR:	          35.543 s. ( 92.21399930 %)
-Clck local MPIComm:	           0.000 s. (  0.00000000 %)
-Time local MPIComm:	           0.000 s. (  0.00000000 %)
-Clck local Total:	        7020.000 s. (100.00000000 %)
-Time local Total:	          38.544 s. (100.00000000 %)
-
-real	0m39.476s
-user	0m0.034s
-sys	0m0.014s
+real	0m13.213s
+user	3m26.293s
+sys	0m1.221s

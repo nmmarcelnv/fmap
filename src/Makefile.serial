@@ -1,4 +1,7 @@
 ICC=icc
+MPICC=mpicc
+TACC_FFTW3_INC=/opt/fftw/3.3.3/intel/mvapich2/ib/include
+TACC_FFTW3_LIB=/opt/fftw/3.3.3/intel/mvapich2/ib/lib
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -D DEBUG -Wall -pg
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -O3
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -pg -O3 -ftree-vectorizer-verbose=2
@@ -17,35 +20,34 @@ OBJECTSddatmMIC=$(SOURCESddatm:.c=.om)
 EXECUTABLE=fmap fmap.cen fmapdd fmapdd.atm fmapdd.showpqr
 EXECUTABLEMIC=fmapdd.mic fmapdd.atm.mic fmapdd.showpqr.mic
 
-all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) $(EXECUTABLEMIC)
+all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) 
 	
 #$(EXECUTABLE): $(OBJECTS) $(EXECUTABLE).o
 #	$(CC) $(OBJECTS) $(EXECUTABLE).o $(LDFLAGS) -o $@
 
 fmap: $(OBJECTS) fmap.o
-	$(ICC) $(OBJECTS) fmap.o $(LDFLAGS) -o $@
+	$(MPICC) $(OBJECTS) fmap.o $(LDFLAGS) -o $@
 fmap.cen: $(OBJECTS) fmap.c
 	grep -v -e ToCtd -e CalCtd fmap.c >fmap.cen.c
-	$(ICC) $(OBJECTS) fmap.cen.c $(LDFLAGS) -o $@
+	$(MPICC) $(OBJECTS) fmap.cen.c $(LDFLAGS) -o $@
 
 fmapdd: $(OBJECTSdd)  fmapdd.c
-	$(ICC) $(OBJECTSdd) fmapdd.c $(LDFLAGS) -o $@
+	$(MPICC) $(OBJECTSdd) fmapdd.c $(LDFLAGS) -o $@
 fmapdd.mic: $(OBJECTSddMIC)  fmapdd.c
 	$(ICC) $(OBJECTSddMIC) fmapdd.c $(LDFLAGSMIC) -o $@
 
 fmapdd.showpqr: $(OBJECTSdd)  fmapdd.showpqr.c
-	$(ICC) $(OBJECTSdd) fmapdd.showpqr.c $(LDFLAGS) -o $@
+	$(MPICC) $(OBJECTSdd) fmapdd.showpqr.c $(LDFLAGS) -o $@
 fmapdd.showpqr.mic: $(OBJECTSddMIC)  fmapdd.showpqr.c
 	$(ICC) $(OBJECTSddMIC) fmapdd.showpqr.c $(LDFLAGSMIC) -o $@
 
 fmapdd.atm: $(OBJECTSddatm)  fmapdd.c
-	$(ICC) $(OBJECTSddatm) fmapdd.c $(LDFLAGS) -o $@
+	$(MPICC) $(OBJECTSddatm) fmapdd.c $(LDFLAGS) -o $@
 fmapdd.atm.mic: $(OBJECTSddatmMIC)  fmapdd.c
 	$(ICC) $(OBJECTSddatmMIC) fmapdd.c $(LDFLAGSMIC) -o $@
 
 .c.o:
-	$(ICC) $(CFLAGS) $< -o $@
-	$(ICC) $(CFLAGSMIC) $< -o $(@)m
+	$(MPICC) $(CFLAGS) $< -o $@
 
 clean:
 	rm -f *.o *.om
