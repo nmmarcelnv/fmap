@@ -170,10 +170,10 @@ int main(int argc, char **argv){
 	ProFree(rec);
 	ProFree(lig);	
 	fftw_cleanup_threads();
-#ifdef USE_MPI
-	MPI_Type_free(&MPI_ATOM);
 	Times(false,1,9);
 	TimeRep(stderr);
+#ifdef USE_MPI
+	MPI_Type_free(&MPI_ATOM);
 	MPI_Finalize();
 #endif /* USE_MPI */
 	exit(EXIT_SUCCESS);

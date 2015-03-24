@@ -1,0 +1,34 @@
+#!/bin/bash
+#----------------------------------------------------
+# Example SLURM job script to run hybrid applications 
+# (MPI/OpenMP or MPI/pthreads) on TACC's Stampede 
+# system.
+#----------------------------------------------------
+#SBATCH -J omp_fmap     # Job name
+#SBATCH -o omp_fmap.o%j # Name of stdout output file(%j expands to jobId) 
+#SBATCH -e omp_fmap.e%j # Name of stderr output file(%j expands to jobId)
+#SBATCH -p development  # Serial queue for serial and OpenMP jobs
+#SBATCH -N 1            # Total number of nodes requested (16 cores/node)
+#SBATCH -n 1            # Total number of mpi tasks requested
+#SBATCH -t 0:30:00      # Run time (hh:mm:ss) - 1.5 hours
+# The next line is required if the user has more than one project
+# #SBATCH -A A-yourproject  # <-- Allocation name to charge job against
+
+cd src
+make -f Makefile.serial clean &>make.serial.log
+make -f Makefile.serial &>>make.serial.log
+cd - >/dev/null
+cd test.serial
+	bash test20.sh >&test20.sh.log
+cd ->/dev/null
+
+cd src
+make clean &>make.mpi.log
+make  &>>make.mpi.log
+cd - >/dev/null
+for drt in test test.15 test.cen test.mpi
+do
+	cd $drt
+		bash test20.sh >&test20.sh.log
+	cd - >/dev/null	
+done
