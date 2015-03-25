@@ -41,11 +41,11 @@ int main(int argc, char **argv){
 
 	fftw_init_threads();
 	fftw_plan_with_nthreads(omp_get_max_threads());
-//ifdef _OPENMP
+//#ifdef _OPENMP
 //	printf("TACC Nthread:%d\n",omp_get_max_threads());
 //	printf("TACC Size:%d\n",size);
 //	printf("TACC rank:%d\n",rank);
-//endif
+//#endif
 
         PARM sys;
         sys.rup=12.0;
