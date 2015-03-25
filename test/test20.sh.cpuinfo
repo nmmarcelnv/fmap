@@ -4,7 +4,7 @@ cpu family	: 6
 model		: 45
 model name	: Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
 stepping	: 6
-cpu MHz		: 2593.676
+cpu MHz		: 2593.658
 cache size	: 20480 KB
 physical id	: 1
 siblings	: 8
@@ -24,6 +24,6 @@ address sizes	: 46 bits physical, 48 bits virtual
 power management:
 
              total       used       free     shared    buffers     cached
-Mem:      66053956    1746820   64307136          0      17564     136592
--/+ buffers/cache:    1592664   64461292
-Swap:      2097148      13552    2083596
+Mem:      66053956    1708472   64345484          0      15888     111216
+-/+ buffers/cache:    1581368   64472588
+Swap:      2097148      12716    2084432
