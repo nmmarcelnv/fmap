@@ -16,7 +16,7 @@ void zeroarr(int n, double *v){
 
 int main(int argc, char **argv){
 #ifdef DEBUG
-    printf("RUNNING DEBUG BUILD\n");
+    fprintf(stderr,"RUNNING DEBUG BUILD\n");
 #endif
 	if (argc<6){
                 usage(argv[0]);
@@ -121,7 +121,7 @@ int main(int argc, char **argv){
 	Times(false,1,8);
 #endif
 	
-	CLINKED* lnk;
+	CLINKED lnk;
 	int bl=(int)(round)(2*l*dx/lnkc2);
         int box[3]={bl,bl,bl};
 	double xyz[nCrd][3];
@@ -131,9 +131,8 @@ int main(int argc, char **argv){
                 xyz[i][1]=Crds[i].xyz[1];
                 xyz[i][2]=Crds[i].xyz[2];
         }
-        lnk=lnk_create(xyz,nCrd,lnkc2,1,box);
         int nb=(int)ceil(2.0*sys.rup/lnkc2);
-        lnk_setnb(lnk,nb);
+        lnk=lnk_create(nCrd,xyz,nb,lnkc2/2.0,1,box);
 
 	double ern[4][nv];
 	double ernCrd[4][nCrd];
@@ -151,7 +150,7 @@ int main(int argc, char **argv){
 	for (j=0;j<nPro;j++){
 		ProCur[j]=Pros[j];
 	}
-	#pragma omp for schedule(dynamic,1) nowait
+	#pragma omp for schedule(dynamic,1)
 	for (i=0;i<nv;i++){
 #ifdef USE_MPI
 		if (i%size==rank){
@@ -177,9 +176,9 @@ int main(int argc, char **argv){
 #else
 	ijkrep(nCrd,Crds,nPro,Pros,&sys,nv,Angs,tran,score,ern,ernCrd,ernPro,stdout);
 #endif
-	lnk_free(lnk);
 	Times(false,1,9);
         TimeRep(stderr);
+	lnk_free(&lnk);
 #ifdef USE_MPI
 	MPI_Finalize();
 #endif	

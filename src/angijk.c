@@ -58,7 +58,7 @@ void ShowErn(FILE *fp, int nAtom, ATOM atoms[nAtom], double ern[4][nAtom]){
         }
 }
 
-void softlnkijk1(int nCrd, ATOM Crds[], int nPro, ATOM Pros[], int l, double dx, PARM* sys,CLINKED* lnk,
+void softlnkijk1(int nCrd, ATOM Crds[], int nPro, ATOM Pros[], int l, double dx, PARM* sys,CLINKED lnk,
 	int nv, double ijk[nv][3], double ern[4][nv], double ernCrd[4][nCrd], double ernPro[4][nPro], int pos){
 	//const double escl=sys->escl;
 	//const double vscl=sys->vscl;
@@ -87,7 +87,7 @@ void softlnkijk1(int nCrd, ATOM Crds[], int nPro, ATOM Pros[], int l, double dx,
         //ernaddPro(nPro, Pros,ernPro[2],vscl);
 }
 
-void softijk1(int nCrd, ATOM Crds[], int nPro, ATOM Pros[], int l, double dx, PARM* sys,CLINKED* lnk,
+void softijk1(int nCrd, ATOM Crds[], int nPro, ATOM Pros[], int l, double dx, PARM* sys,CLINKED lnk,
 	int nv, double ijk[nv][3], double ern[4][nv], double ernCrd[4][nCrd], double ernPro[4][nPro], int pos){
 	//const double escl=sys->escl;
 	//const double vscl=sys->vscl;

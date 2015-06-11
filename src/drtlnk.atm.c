@@ -1,19 +1,20 @@
 #include "common.h"
 #include "linked.h"
 
-double drtlnkf(int n, ATOM atoms1[], int m, ATOM atoms2[], double offset[3],double dx2,void* sys, CLINKED *lnk,
+double drtlnkf(int n, ATOM atoms1[], int m, ATOM atoms2[], double offset[3],double dx2,void* sys, CLINKED lnk,
 	double (*mul)(void*,void*, double, double, void*)){
 	int i,j;
 	double sum=0.0;
 	double mx,my,mz;
-	int idx[n*9];
-	double r2[n*9];
+	int maxnb=n*9;
+	int idx[maxnb];
+	double r2[maxnb];
 	double cur;
 	for (j=0;j<m;j++){
 		mx=offset[0]+atoms2[j].xyz[0];
 		my=offset[1]+atoms2[j].xyz[1];
 		mz=offset[2]+atoms2[j].xyz[2];
-		n=lnk_nearest(lnk,mx,my,mz,idx,r2);
+		n=lnk_nearest(lnk,mx,my,mz,maxnb,idx,r2);
 		//if (n>0){
 		//	fprintf(stderr,"lnk: %d offset: %8.3f%8.3f%8.3f %8.3f%8.3f%8.3f\n",n,offset[0],offset[1],offset[2],mx,my,mz);
 		//}
@@ -30,7 +31,7 @@ double drtlnkf(int n, ATOM atoms1[], int m, ATOM atoms2[], double offset[3],doub
 	return sum;
 }
 
-void drtlnk(int n, ATOM atoms1[], int m, ATOM atoms2[], int l,double dx, fftw_complex* grd0, int loc,void* sys,CLINKED *lnk,
+void drtlnk(int n, ATOM atoms1[], int m, ATOM atoms2[], int l,double dx, fftw_complex* grd0, int loc,void* sys,CLINKED lnk,
 	double (*mul)(void*,void*,double, double ,void*)){
 	double dx2=1.0;
 	double offset[3];
@@ -51,7 +52,7 @@ void drtlnk(int n, ATOM atoms1[], int m, ATOM atoms2[], int l,double dx, fftw_co
 }
 
 void drtlnkijk(int n, ATOM atoms1[], int m, ATOM atoms2[], int l,double dx, int ne, int ijk[ne][3], double ern[ne], 
-	void* sys, CLINKED *lnk,
+	void* sys, CLINKED lnk,
         double (*mul)(void*,void*,double,double, void*)){
         double dx2=1.0f;
         double offset[3];

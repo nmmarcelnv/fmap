@@ -2,10 +2,10 @@
 
 set -x
 
-export MV2_USE_AFFINITY=0
-export MV2_ENABLE_AFFINITY=0
-export VIADEV_USE_AFFINITY=0
-export VIADEV_ENABLE_AFFINITY=0
+#export MV2_USE_AFFINITY=0
+#export MV2_ENABLE_AFFINITY=0
+#export VIADEV_USE_AFFINITY=0
+#export VIADEV_ENABLE_AFFINITY=0
 
 tail -25 /proc/cpuinfo >test20.sh.cpuinfo
 free >>test20.sh.cpuinfo

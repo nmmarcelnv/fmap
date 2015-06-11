@@ -3,24 +3,25 @@
 #include <string.h>
 #include <math.h>
 #include <float.h>
+#include <assert.h>
 #include "linked.h"
 
 #define EMPTY -1
 
-void Grdxyz(double x, double y, double z,double bound[6], double halfcut, int* gx, int* gy, int* gz);
+void Grdxyz(double x, double y, double z,double bound[6], double spacing, int* gx, int* gy, int* gz);
 void getbound(double xyz[][3],int num, double bound[6]);
-int calcsize(double bound[6], double halfcut, int box[3]);
-int Indxyz(double x, double y, double z, CLINKED* lnk);
-void buildlinked(double xyz[][3], int num, CLINKED* lnk);
+int calcsize(double bound[6], double spacing, int box[3]);
+int Indxyz(double x, double y, double z, CLINKED lnk);
+void buildlinked(double xyz[][3], int num, CLINKED lnk);
 
-struct linked {
+struct CLINKED{
 	int num;
 	int box[3];
 	double boxlen[3];
 	int lcxyz,lcyz,lcz;
 	int* head;
 	int* lscl;
-	double halfcut;
+	double spacing;
 	double bound[6];
 	double outer[6];
 	int pbc;
@@ -45,10 +46,10 @@ int pbc1shf(int x, int l, int* shift){
 	return px;
 }
 
-void Grdxyz(double x, double y, double z,double bound[6], double halfcut, int* gx, int* gy, int* gz){
-        *gx=(int)round(((x-bound[0])/halfcut));
-        *gy=(int)round(((y-bound[1])/halfcut));
-        *gz=(int)round(((z-bound[2])/halfcut));
+void Grdxyz(double x, double y, double z,double bound[6], double spacing, int* gx, int* gy, int* gz){
+        *gx=(int)round(((x-bound[0])/spacing));
+        *gy=(int)round(((y-bound[1])/spacing));
+        *gz=(int)round(((z-bound[2])/spacing));
 	//fprintf(stderr,"Grdxyz: %8.3f%8.3f%8.3f%8d%8d%8d\n",x,y,z,*gx,*gy,*gz);
 }
 
@@ -66,18 +67,18 @@ void getbound(double xyz[][3],int num, double bound[6]){
         }
 }
 
-int calcsize(double bound[6], double halfcut, int box[3]){
+int calcsize(double bound[6], double spacing, int box[3]){
         int j;
         for (j=0;j<3;j++){
-                box[j]=(int)ceil((bound[j+3]-bound[j])/halfcut);
+                box[j]=(int)ceil((bound[j+3]-bound[j])/spacing);
         }
         return box[0]*box[1]*box[2];
 }
 
-int Indxyz(double x, double y, double z, CLINKED* lnk){
+int Indxyz(double x, double y, double z, CLINKED lnk){
         int cx,cy,cz;
 	int shift;
-        Grdxyz(x,y,z,lnk->bound,lnk->halfcut,&cx,&cy,&cz);
+        Grdxyz(x,y,z,lnk->bound,lnk->spacing,&cx,&cy,&cz);
 	//fprintf(stderr,"%d %d %d\n",cx,cy,cz);
 	if (lnk->pbc){
 		cx=pbc1shf(cx,lnk->box[0],&shift);
@@ -87,7 +88,7 @@ int Indxyz(double x, double y, double z, CLINKED* lnk){
         return cx*lnk->lcyz+cy*lnk->lcz+cz;
 }
 
-void buildlinked(double xyz[][3], int num, CLINKED* lnk){
+void buildlinked(double xyz[][3], int num, CLINKED lnk){
         int i,c;
         for (i=0;i<lnk->lcxyz;i++){
                 lnk->head[i]=EMPTY;
@@ -98,33 +99,36 @@ void buildlinked(double xyz[][3], int num, CLINKED* lnk){
                 lnk->head[c]=i;
         }
 }
-//box[i]*cutoff/2.0f == PBC boundary
-CLINKED* lnk_create(double xyz[][3], int num, double cutoff, int pbc, int box[3]){
-	CLINKED* lnk;
+//box[i]*spacing == PBC boundary
+//nb*spacing >=cutoff
+CLINKED lnk_create(int num, double xyz[][3], int nb, double spacing, int pbc, int box[3]){
+	CLINKED lnk;
 	int i;
-	if(!(lnk = malloc(sizeof(CLINKED)))) {
+	//struct CLINKED instead of CLINKED, otherwise malloc(): memory corruption
+	if(!(lnk = malloc(sizeof(struct CLINKED)))) {
                 return 0;
         }
 	lnk->num=num;
-	lnk->halfcut=cutoff/2.0f;
+	lnk->nb=nb;
+	lnk->spacing=spacing;
 	lnk->pbc=pbc;
 	lnk->xyz=&xyz[0];
 	if (lnk->pbc){
 		for (i=0;i<3;i++){
 			
 			lnk->box[i]=box[i];
-			lnk->bound[i]=-0.5*lnk->box[i]*lnk->halfcut;
-			lnk->bound[i+3]=0.5*lnk->box[i]*lnk->halfcut;
-			lnk->boxlen[i]=lnk->box[i]*lnk->halfcut;
+			lnk->bound[i]=-0.5*lnk->box[i]*lnk->spacing;
+			lnk->bound[i+3]=0.5*lnk->box[i]*lnk->spacing;
+			lnk->boxlen[i]=lnk->box[i]*lnk->spacing;
 		}
 		lnk->lcxyz=lnk->box[0]*lnk->box[1]*lnk->box[2];
 	}else{
 		getbound(xyz,num,lnk->bound);
 		for (i=0;i<3;i++){
-			lnk->outer[i]=lnk->bound[i]-cutoff;
-			lnk->outer[i+3]=lnk->bound[i+3]+cutoff;
+			lnk->outer[i]=lnk->bound[i]-lnk->nb*lnk->spacing;
+			lnk->outer[i+3]=lnk->bound[i+3]+lnk->nb*lnk->spacing;
 		}
-		lnk->lcxyz=calcsize(lnk->bound,lnk->halfcut,lnk->box);
+		lnk->lcxyz=calcsize(lnk->bound,lnk->spacing,lnk->box);
 	}
 	lnk->lcyz=lnk->box[1]*lnk->box[2];
 	lnk->lcz=lnk->box[2];
@@ -138,13 +142,19 @@ CLINKED* lnk_create(double xyz[][3], int num, double cutoff, int pbc, int box[3]
 	return lnk;
 }
 
-void lnk_free(struct linked *lnk)
+void lnk_free(CLINKED *lnk)
 {
-        if(lnk) {
-                free(lnk->head);
-		free(lnk->lscl);
-                free(lnk);
-        }
+	assert(lnk && *lnk);
+	assert((*lnk)->head);
+        free((*lnk)->head);
+	(*lnk)->head=NULL;
+	assert((*lnk)->lscl);
+	free((*lnk)->lscl);
+	(*lnk)->lscl=NULL;
+	free((*lnk)->lscl);
+	assert(*lnk);
+        free(*lnk);
+	(*lnk)=NULL;
 }
 
 double pbcdst(double x, double boxl){
@@ -154,7 +164,7 @@ double pbcdst(double x, double boxl){
 	return frac*boxl;
 }
 
-int lnk_nearest(CLINKED* lnk, double x, double y, double z, int idx[], double r2[]){
+int lnk_nearest(CLINKED lnk, double x, double y, double z, int maxnb, int idx[], double r2[]){
 	int cnt=0;
 	int cx,cy,cz;
 	int ii,jj,kk;
@@ -165,7 +175,6 @@ int lnk_nearest(CLINKED* lnk, double x, double y, double z, int idx[], double r2
 	int nb;
 	vj=EMPTY; //avoid vj undifined when xyz is out: 2014/01/08 qsb
 	nb=lnk->nb;
-	//double f3=lnk->halfcut*3.0;
 	pi=0;pj=0;pk=0;
 	shx=0;shy=0;shz=0;
 	if (!lnk->pbc){
@@ -174,7 +183,7 @@ int lnk_nearest(CLINKED* lnk, double x, double y, double z, int idx[], double r2
 			return 0;
 		}
 	}
-	Grdxyz(x,y,z,lnk->bound,lnk->halfcut,&cx,&cy,&cz);
+	Grdxyz(x,y,z,lnk->bound,lnk->spacing,&cx,&cy,&cz);
 	for (ii=cx-nb;ii<=cx+nb;ii++){
 	  if (lnk->pbc) pi=pbc1shf(ii,lnk->box[0],&shx);
        	  for (jj=cy-nb;jj<=cy+nb;jj++){
@@ -201,15 +210,15 @@ int lnk_nearest(CLINKED* lnk, double x, double y, double z, int idx[], double r2
 				mz=pbcdst(mz,lnk->boxlen[2]);
 			}
 			r2[cnt]=mx*mx+my*my+mz*mz;
-			cnt++;
+			if (cnt<maxnb-1){
+				cnt++;
+			}else{
+				fprintf(stderr,"%s:%d INCREASE NB, %d IS TOO SMALL\n",__FILE__,__LINE__,maxnb);
+			}
 			vj=lnk->lscl[vj];
 		  }
 	    }
           }
 	}
 	return cnt;
-}
-
-void lnk_setnb(CLINKED* lnk,int nb){
-	lnk->nb=nb;
 }

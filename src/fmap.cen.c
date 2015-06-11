@@ -10,7 +10,7 @@ void usage(char *prog){
 
 int main(int argc, char **argv){
 #ifdef DEBUG
-    printf("RUNNING DEBUG BUILD\n");
+    fprintf(stderr,"RUNNING DEBUG BUILD\n");
 #endif
 	if (argc<13){
                 usage(argv[0]);
