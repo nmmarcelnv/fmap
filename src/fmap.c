@@ -141,6 +141,8 @@ int main(int argc, char **argv){
 	recEle=&(extEle[0][0][0]);
 	recR12=&(extR12[0][0][0]);
 	recR6=&(extR6[0][0][0]);
+	int nb=4001;
+	double mat[nb][nb];
 #endif
 	Times(false,1,0);
 	Times(true,1,7);
@@ -151,7 +153,7 @@ int main(int argc, char **argv){
 			Euler2Rot(Angs[i][0],Angs[i][1],Angs[i][2],rot);
 			RotXYZ(nPro,Pros,xyzLig,rot);
 			ProUpdate(lig,nPro,xyzLig);
-			Cross(rec,lig,sys,l,sav,Angs[i]);
+			Cross(rec,lig,sys,l,sav,Angs[i],nb,mat);
 #ifdef USE_MPI
 		}
 #endif /* USE_MPI */
@@ -166,6 +168,9 @@ int main(int argc, char **argv){
 #endif /* USE_MPI */
 		double ang0[3]={0.0,0.0,0.0};
 		SelErn(l,vol,sav,ang0,sys.erncut);
+		FILE* mfp=fopen("mat.bin","wb");
+		fwrite(mat,sizeof(double),nb*nb,mfp);
+		fclose(mfp);
 #ifdef USE_MPI
 	}
 #endif /* USE_MPI */

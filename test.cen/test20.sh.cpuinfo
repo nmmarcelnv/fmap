@@ -24,6 +24,6 @@ address sizes	: 46 bits physical, 48 bits virtual
 power management:
 
              total       used       free     shared    buffers     cached
-Mem:      32815324    4034840   28780484        196       7648     209672
--/+ buffers/cache:    3817520   28997804
+Mem:      32815324    4111640   28703684        188       6116     279044
+-/+ buffers/cache:    3826480   28988844
 Swap:            0          0          0
