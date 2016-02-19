@@ -19,4 +19,4 @@ grep -e Clck -e Time test20.sh.err
 tail -3 test20.sh.err
 grep -v -e "^  0.000000  0.000000  0.000000" -e "^TACC" -e "^ $" test20.sh.out >fmap.out
 /usr/bin/time -p ibrun -np 4 ../src/fmapdd fmap.out 0.05 298 2.0 0.2  >fmapdd.out
-time ../src/fmapdd.mic fmap.out 0.05 298 2.0 0.2  >fmapdd.mic.out
+#time ../src/fmapdd.mic fmap.out 0.05 298 2.0 0.2  >fmapdd.mic.out
