@@ -21,6 +21,7 @@ typedef struct {
 
 double GetKappa(double IonicStrength, double SDie, double Temp);
 double GetkBT(double Temp);
+double GetWaterDie(double Temp);
 
 #ifdef __cplusplus
 }

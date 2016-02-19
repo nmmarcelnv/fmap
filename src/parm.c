@@ -28,3 +28,12 @@ double GetkBT(double Temp){
 	const double k_B = 3.297623030e-24;
 	return N_A*k_B*Temp/1000.0;
 }
+
+//Malmberg, C. & Maryott, A. Dielectric constant of water from 0 to 100~C. J. RES. NAT. BUR. STAN., NIST, 1956 ,56 ,1
+double GetWaterDie(double Temp){
+	const double c2k=273.15;
+        double t=Temp-c2k;
+        //sdie=87.740-0.40008*t + 9.398*(1e-4)*t^2 -1.410*(1e-6)*t^3
+	double sdie = 87.740-0.40008*t+9.398e-4*t*t+1.410e-6*t*t*t;
+	return sdie;
+}
