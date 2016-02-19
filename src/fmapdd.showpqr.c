@@ -39,8 +39,8 @@ int main(int argc, char **argv){
         sys.rup=12.0;
 	sys.rlow=1.0;
 	sys.dx=dx;
-	sys.sdie=78.5;
-	sys.kap=(double)GetKappa(ion,(double)sys.sdie,tempK);
+	sys.sdie=GetWaterDie(tempK);
+	sys.kap=GetKappa(ion,sys.sdie,tempK);
 	sys.escl=esclrel*332.0/sys.sdie;
 	sys.vscl=vsclrel;
 	sys.kBT=GetkBT(tempK);

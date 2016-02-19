@@ -19,3 +19,6 @@ grep -e Clck -e Time test20.sh.err
 grep -v "^  0.000000  0.000000  0.000000" test20.sh.out >fmap.out
 time ../src/fmapdd fmap.out 0.05 298 2.0 0.2  >fmapdd.out
 time ../src/fmapdd.mic fmap.out 0.05 298 2.0 0.2  >fmapdd.mic.out
+grep v+e test20.sh.err >test20.sh.err.v+e
+~/bin/colstat.sh test20.sh.err.v+e 3|awk '{printf("%16e\n",$1)}'
+echo 1.0 1.0| ../src/matevscl mat.bin 4001 0.02 -40.0 298 

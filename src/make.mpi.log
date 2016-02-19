@@ -1,65 +1,58 @@
 rm -f *.o *.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  cross.c -o cross.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  cross.c -o cross.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  fftw.c -o fftw.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  fftw.c -o fftw.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  grdL.c -o grdL.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  grdL.c -o grdL.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  grdR.c -o grdR.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  grdR.c -o grdR.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  parm.c -o parm.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  parm.c -o parm.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  pdb.c -o pdb.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  pdb.c -o pdb.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  pro.c -o pro.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  pro.c -o pro.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  rdf.c -o rdf.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  rdf.c -o rdf.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  rot.c -o rot.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  rot.c -o rot.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  score.c -o score.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  score.c -o score.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  cputime.c -o cputime.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  cputime.c -o cputime.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  fmap.c -o fmap.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  fmap.c -o fmap.om
-mpicc cross.o fftw.o grdL.o grdR.o parm.o pdb.o pro.o rdf.o rot.o score.o cputime.o fmap.o -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmap
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  cross.c -o cross.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  cross.c -o cross.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  fftw.c -o fftw.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  fftw.c -o fftw.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  grdL.c -o grdL.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  grdL.c -o grdL.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  grdR.c -o grdR.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  grdR.c -o grdR.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  parm.c -o parm.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  parm.c -o parm.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  pdb.c -o pdb.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  pdb.c -o pdb.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  pro.c -o pro.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  pro.c -o pro.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  rdf.c -o rdf.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  rdf.c -o rdf.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  rot.c -o rot.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  rot.c -o rot.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  score.c -o score.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  score.c -o score.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  cputime.c -o cputime.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  cputime.c -o cputime.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  fmap.c -o fmap.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  fmap.c -o fmap.om
+mpicc cross.o fftw.o grdL.o grdR.o parm.o pdb.o pro.o rdf.o rot.o score.o cputime.o fmap.o -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -Wl,-rpath,/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib  -L/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmap
 grep -v -e ToCtd -e CalCtd fmap.c >fmap.cen.c
-mpicc cross.o fftw.o grdL.o grdR.o parm.o pdb.o pro.o rdf.o rot.o score.o cputime.o fmap.cen.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmap.cen
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  ele.drt.c -o ele.drt.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  ele.drt.c -o ele.drt.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  vdw.drt.c -o vdw.drt.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  vdw.drt.c -o vdw.drt.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  vol.drt.c -o vol.drt.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  vol.drt.c -o vol.drt.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  linked.c -o linked.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  linked.c -o linked.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drt.c -o drt.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drt.c -o drt.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drtlnk.c -o drtlnk.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drtlnk.c -o drtlnk.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  angijk.c -o angijk.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  angijk.c -o angijk.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  zdread.c -o zdread.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  zdread.c -o zdread.om
-mpicc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.o drtlnk.o angijk.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmapdd
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drt.atm.c -o drt.atm.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drt.atm.c -o drt.atm.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drtlnk.atm.c -o drtlnk.atm.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drtlnk.atm.c -o drtlnk.atm.om
-mpicc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  angijk.atm.c -o angijk.atm.o
-icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  angijk.atm.c -o angijk.atm.om
-mpicc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.atm.o drtlnk.atm.o angijk.atm.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmapdd.atm
-mpicc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.o drtlnk.o angijk.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.showpqr.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmapdd.showpqr
-icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.om drtlnk.om angijk.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.mic
-ipo: warning #11010: file format not recognized for /lib64/libpthread.so.0
-ipo: warning #11010: file format not recognized for /lib64/libc.so.6
-ipo: warning #11010: file format not recognized for /lib64/libc.so.6
-icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.atm.om drtlnk.atm.om angijk.atm.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.atm.mic
-ipo: warning #11010: file format not recognized for /lib64/libpthread.so.0
-ipo: warning #11010: file format not recognized for /lib64/libc.so.6
-ipo: warning #11010: file format not recognized for /lib64/libc.so.6
-icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.om drtlnk.om angijk.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.showpqr.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.showpqr.mic
-ipo: warning #11010: file format not recognized for /lib64/libpthread.so.0
-ipo: warning #11010: file format not recognized for /lib64/libc.so.6
-ipo: warning #11010: file format not recognized for /lib64/libc.so.6
+mpicc cross.o fftw.o grdL.o grdR.o parm.o pdb.o pro.o rdf.o rot.o score.o cputime.o fmap.cen.c -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -Wl,-rpath,/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib  -L/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmap.cen
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  ele.drt.c -o ele.drt.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  ele.drt.c -o ele.drt.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  vdw.drt.c -o vdw.drt.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  vdw.drt.c -o vdw.drt.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  vol.drt.c -o vol.drt.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  vol.drt.c -o vol.drt.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  linked.c -o linked.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  linked.c -o linked.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drt.c -o drt.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  drt.c -o drt.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drtlnk.c -o drtlnk.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  drtlnk.c -o drtlnk.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  angijk.c -o angijk.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  angijk.c -o angijk.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  zdread.c -o zdread.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  zdread.c -o zdread.om
+mpicc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.o drtlnk.o angijk.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.c -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -Wl,-rpath,/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib  -L/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmapdd
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drt.atm.c -o drt.atm.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  drt.atm.c -o drt.atm.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  drtlnk.atm.c -o drtlnk.atm.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  drtlnk.atm.c -o drtlnk.atm.om
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  angijk.atm.c -o angijk.atm.o
+icc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -mmic  angijk.atm.c -o angijk.atm.om
+mpicc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.atm.o drtlnk.atm.o angijk.atm.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.c -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -Wl,-rpath,/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib  -L/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmapdd.atm
+mpicc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.o drtlnk.o angijk.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.showpqr.c -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -Wl,-rpath,/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib  -L/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o fmapdd.showpqr
+icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.om drtlnk.om angijk.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.c -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.mic
+icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.atm.om drtlnk.atm.om angijk.atm.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.c -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.atm.mic
+icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.om drtlnk.om angijk.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.showpqr.c -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.showpqr.mic
+mpicc -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -c -Wall -O3 -std=c99 -openmp -DUSE_MPI  matevscl.c -o matevscl.o
+mpicc pdb.o score.o parm.o matevscl.o -I/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/include -Wl,-rpath,/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib  -L/opt/apps/intel15/mvapich2_2_1/fftw3/3.3.4/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3 -DUSE_MPI  -o matevscl
