@@ -2,6 +2,8 @@
 
 set -x
 
+#next line fix known problem for intel compiler: a few cores idle unexpectedly
+export KMP_AFFINITY=compact
 export MV2_USE_AFFINITY=0
 export MV2_ENABLE_AFFINITY=0
 export VIADEV_USE_AFFINITY=0
