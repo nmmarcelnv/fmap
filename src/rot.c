@@ -96,3 +96,20 @@ int SetAng(char *pdbfn, double Angs[][3]){
         }
         return pos;
 }
+
+int SetFns(char *pdbfn, char Angs[][MAXLENLINE]){
+	FILE *file;
+        char line[MAXLENLINE];
+	int pos;
+	if (FileExist(pdbfn)==0){
+                exit(EXIT_FAILURE);
+        }
+        file=fopen(pdbfn, "r");
+	pos=0;
+	while (fgets(line, MAXLENLINE, file) != NULL){
+		sscanf(line,"%s",Angs[pos]);
+		//printf("%s:%ld\n",Angs[pos],strlen(Angs[pos]));
+		pos=pos+1;
+	}
+	return pos;
+}

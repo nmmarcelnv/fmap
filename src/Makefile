@@ -15,10 +15,10 @@ OBJECTSdd=$(SOURCESdd:.c=.o)
 OBJECTSddMIC=$(SOURCESdd:.c=.om)
 OBJECTSddatm=$(SOURCESddatm:.c=.o)
 OBJECTSddatmMIC=$(SOURCESddatm:.c=.om)
-EXECUTABLE=fmap fmap.cen fmapdd fmapdd.atm fmapdd.showpqr
+EXECUTABLE=fmap fmap.cen fmapdd fmapdd.atm fmapdd.showpqr matevscl fmappdbs 
 EXECUTABLEMIC=fmapdd.mic fmapdd.atm.mic fmapdd.showpqr.mic
 
-all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) $(EXECUTABLEMIC) matevscl
+all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE) $(EXECUTABLEMIC)
 	
 #$(EXECUTABLE): $(OBJECTS) $(EXECUTABLE).o
 #	$(CC) $(OBJECTS) $(EXECUTABLE).o $(LDFLAGS) -o $@
@@ -28,6 +28,9 @@ fmap: $(OBJECTS) fmap.o
 fmap.cen: $(OBJECTS) fmap.c
 	grep -v -e ToCtd -e CalCtd fmap.c >fmap.cen.c
 	$(MPICC) $(OBJECTS) fmap.cen.c $(LDFLAGS) -o $@
+
+fmappdbs:  $(OBJECTS) fmappdbs.c
+	$(MPICC) $(OBJECTS) fmappdbs.c $(LDFLAGS) -o $@
 
 fmapdd: $(OBJECTSdd)  fmapdd.c
 	$(MPICC) $(OBJECTSdd) fmapdd.c $(LDFLAGS) -o $@
