@@ -1,0 +1,65 @@
+rm -f *.o *.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  cross.c -o cross.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  cross.c -o cross.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  fftw.c -o fftw.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  fftw.c -o fftw.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  grdL.c -o grdL.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  grdL.c -o grdL.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  grdR.c -o grdR.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  grdR.c -o grdR.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  parm.c -o parm.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  parm.c -o parm.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  pdb.c -o pdb.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  pdb.c -o pdb.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  pro.c -o pro.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  pro.c -o pro.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  rdf.c -o rdf.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  rdf.c -o rdf.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  rot.c -o rot.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  rot.c -o rot.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  score.c -o score.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  score.c -o score.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  cputime.c -o cputime.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  cputime.c -o cputime.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  fmap.c -o fmap.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  fmap.c -o fmap.om
+icc cross.o fftw.o grdL.o grdR.o parm.o pdb.o pro.o rdf.o rot.o score.o cputime.o fmap.o -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3  -o fmap
+grep -v -e ToCtd -e CalCtd fmap.c >fmap.cen.c
+icc cross.o fftw.o grdL.o grdR.o parm.o pdb.o pro.o rdf.o rot.o score.o cputime.o fmap.cen.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3  -o fmap.cen
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  ele.drt.c -o ele.drt.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  ele.drt.c -o ele.drt.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  vdw.drt.c -o vdw.drt.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  vdw.drt.c -o vdw.drt.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  vol.drt.c -o vol.drt.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  vol.drt.c -o vol.drt.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  linked.c -o linked.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  linked.c -o linked.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  drt.c -o drt.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drt.c -o drt.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  drtlnk.c -o drtlnk.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drtlnk.c -o drtlnk.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  angijk.c -o angijk.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  angijk.c -o angijk.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  zdread.c -o zdread.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  zdread.c -o zdread.om
+icc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.o drtlnk.o angijk.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3  -o fmapdd
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  drt.atm.c -o drt.atm.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drt.atm.c -o drt.atm.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  drtlnk.atm.c -o drtlnk.atm.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  drtlnk.atm.c -o drtlnk.atm.om
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp  angijk.atm.c -o angijk.atm.o
+icc -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -c -Wall -O3 -std=c99 -openmp -mmic  angijk.atm.c -o angijk.atm.om
+icc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.atm.o drtlnk.atm.o angijk.atm.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3  -o fmapdd.atm
+icc ele.drt.o vdw.drt.o vol.drt.o linked.o drt.o drtlnk.o angijk.o zdread.o pdb.o rot.o score.o parm.o cputime.o fmapdd.showpqr.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -Wl,-rpath,/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib  -L/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/lib -lfftw3 -lfftw3_omp -lm -Wall -std=c99 -openmp -O3  -o fmapdd.showpqr
+icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.om drtlnk.om angijk.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.mic
+ipo: warning #11010: file format not recognized for /lib64/libpthread.so.0
+ipo: warning #11010: file format not recognized for /lib64/libc.so.6
+ipo: warning #11010: file format not recognized for /lib64/libc.so.6
+icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.atm.om drtlnk.atm.om angijk.atm.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.atm.mic
+ipo: warning #11010: file format not recognized for /lib64/libpthread.so.0
+ipo: warning #11010: file format not recognized for /lib64/libc.so.6
+ipo: warning #11010: file format not recognized for /lib64/libc.so.6
+icc ele.drt.om vdw.drt.om vol.drt.om linked.om drt.om drtlnk.om angijk.om zdread.om pdb.om rot.om score.om parm.om cputime.om fmapdd.showpqr.c -I/opt/apps/intel13/mvapich2_1_9/fftw3/3.3.2/include -lm -Wall -std=c99 -openmp -O3 -mmic  -o fmapdd.showpqr.mic
+ipo: warning #11010: file format not recognized for /lib64/libpthread.so.0
+ipo: warning #11010: file format not recognized for /lib64/libc.so.6
+ipo: warning #11010: file format not recognized for /lib64/libc.so.6
