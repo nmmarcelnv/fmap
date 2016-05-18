@@ -4,7 +4,7 @@ model		: 63
 model name	: Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz
 stepping	: 2
 microcode	: 0x31
-cpu MHz		: 2991.113
+cpu MHz		: 1200.000
 cache size	: 30720 KB
 physical id	: 1
 siblings	: 12
@@ -17,12 +17,12 @@ fpu_exception	: yes
 cpuid level	: 15
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
-bogomips	: 4992.40
+bogomips	: 4992.43
 clflush size	: 64
 cache_alignment	: 64
 address sizes	: 46 bits physical, 48 bits virtual
 power management:
 
               total        used        free      shared  buff/cache   available
-Mem:      131752972     4099280    76919784      149720    50733908   127238220
+Mem:      131752972     1660360    55680660      159476    74411952   129664088
 Swap:             0           0           0

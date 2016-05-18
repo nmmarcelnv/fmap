@@ -1,6 +1,7 @@
 ICC=icc
-TACC_FFTW3_INC=/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include
-TACC_FFTW3_LIB=/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/lib
+#./configure --enable-openmp --enable-sse2 --enable-avx --prefix=/panfs/storage.local/imb/home/sqin/fftw/fftw3.3.4-intel/ CC=icc CFLAGS="-O3"
+TACC_FFTW3_INC=/panfs/storage.local/imb/home/sqin/fftw/fftw3.3.4-intel/include
+TACC_FFTW3_LIB=/panfs/storage.local/imb/home/sqin/fftw/fftw3.3.4-intel/lib
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -D DEBUG -Wall -pg
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -O3
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -pg -O3 -ftree-vectorizer-verbose=2
