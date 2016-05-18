@@ -9,6 +9,7 @@ extern "C" {
 
 typedef struct {
 	double rup;
+	double rEup;
 	double rlow;
 	double dx;
 	double sdie;

@@ -1,7 +1,7 @@
 ICC=icc
 MPICC=mpicc
-#TACC_FFTW3_INC=/opt/fftw/3.3.3/intel/mvapich2/ib/include
-#TACC_FFTW3_LIB=/opt/fftw/3.3.3/intel/mvapich2/ib/lib
+TACC_FFTW3_INC=/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include
+TACC_FFTW3_LIB=/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/lib
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -D DEBUG -Wall -pg
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -O3
 #CFLAGS=-I/panfs/storage.local/imb/home/sqin/fftw/fftw3.3/include -c -Wall -pg -O3 -ftree-vectorizer-verbose=2

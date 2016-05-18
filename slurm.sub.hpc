@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#SBATCH -N 1            # Total number of nodes requested
+#SBATCH -c 16		# Total number of cores requested
+#SBATCH -t 1:30:00      # Run time (hh:mm:ss) - 1.5 hours
+#SBATCH -C intel        # Intel only
+
+module load intel
+cd src
+make -f Makefile.serial clean &>make.serial.log
+make -f Makefile.serial &>>make.serial.log
+cd - >/dev/null
+cd test.serial
+	bash test20.sh >&test20.sh.log
+cd ->/dev/null
+
+module load intel-mvapich2 
+cd src
+make clean &>make.mpi.log
+make  &>>make.mpi.log
+cd - >/dev/null
+for drt in test test.15 test.cen test.mpi
+do
+	cd $drt
+		bash test20.sh >&test20.sh.log
+	cd - >/dev/null	
+done

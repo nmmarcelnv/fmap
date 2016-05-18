@@ -35,10 +35,18 @@ int main(int argc, char **argv){
 	double tempK=atof(argv[3]);
 	double esclrel=atof(argv[4]);
 	double vsclrel=atof(argv[5]);
+	double rEcut=12.0;
+	double rVcut=12.0;
+	if (argc>=7){
+		rEcut=atof(argv[6]);
+	}
+	if (argc>=8){
+		rVcut=atof(argv[7]);
+	}
         PARM sys;
-        sys.rup=12.0;
+        sys.rup=rVcut;
+	sys.rEup=rEcut;
 	sys.rlow=1.0;
-	sys.dx=dx;
 	sys.sdie=GetWaterDie(tempK);
 	sys.kap=GetKappa(ion,sys.sdie,tempK);
 	sys.escl=esclrel*332.0/sys.sdie;

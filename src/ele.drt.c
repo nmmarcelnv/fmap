@@ -11,7 +11,7 @@ double elemul(void* data1, void* data2, double offset[3],double dx2, void* sysv)
         double z=atm1->xyz[2]-atm2->xyz[2]-offset[2];
         double d2=x*x+y*y+z*z;
         //printf("%16e%16e%16e%16e\n",d2,atm1->q,atm2->q,atm1->q*atm2->q*exp(-1.0*dd*kap)/dd);
-        double Cut2=sys->rup*sys->rup;
+        double Cut2=sys->rEup*sys->rEup;
         if (d2>Cut2){
                 return 0.0f;
         }else{
@@ -24,7 +24,7 @@ double elelnk(void* data1, void* data2, double d2, double dx2, void* sysv){
         ATOM* atm1=data1;
         ATOM* atm2=data2;
        	PARM* sys=sysv;
-        double Cut2=sys->rup*sys->rup;
+        double Cut2=sys->rEup*sys->rEup;
         if (d2>Cut2){
                 return 0.0f;
         }else{

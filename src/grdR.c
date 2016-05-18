@@ -154,7 +154,7 @@ void RGrdR6(const int l, fftw_real* grid, PRO* pro, PARM sys, double (*rdf)(doub
 }
 
 void RGrdEle(const int l, fftw_real* grid, PRO* pro, PARM sys, double (*rdf)(double,double)){
-        grdR(l,grid,pro->n,pro->xi,pro->yi,pro->zi,pro->xf,pro->yf,pro->zf,pro->q,pro->kap,sys.rup,sys.rlow,sys.dx,rdf);
+        grdR(l,grid,pro->n,pro->xi,pro->yi,pro->zi,pro->xf,pro->yf,pro->zf,pro->q,pro->kap,sys.rEup,sys.rlow,sys.dx,rdf);
 }
 
 void RGrdVol(const int l, fftw_real* grid, PRO* pro, PARM sys, double (*rdf)(double,double)){

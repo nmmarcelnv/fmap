@@ -38,6 +38,14 @@ int main(int argc, char **argv){
 	double esclrel=atof(argv[10]);
 	double vsclrel=atof(argv[11]);
 	double erncut=atof(argv[12]);
+	double rEcut=12.0;
+	double rVcut=12.0;
+	if (argc>=14){
+		rEcut=atof(argv[13]);
+	}
+	if (argc>=15){
+		rVcut=atof(argv[14]);
+	}
 
 	fftw_init_threads();
 	fftw_plan_with_nthreads(omp_get_max_threads());
@@ -47,8 +55,9 @@ int main(int argc, char **argv){
 //	printf("TACC rank:%d\n",rank);
 //#endif
 
-        PARM sys;
-        sys.rup=12.0;
+        PARM sys;	
+        sys.rup=rVcut;
+	sys.rEup=rEcut;
 	sys.rlow=1.0;
 	sys.dx=dx;
 	sys.sdie=GetWaterDie(tempK);
