@@ -128,6 +128,15 @@ void ShowPqr(FILE *fp, int nAtom, ATOM atoms[]){
         }
 }
 
+void ShowPqrdx(FILE *fp, int nAtom, ATOM atoms[], double xyz[][3], double dx){
+        int i;
+        for (i=0;i<nAtom;i++){
+                fprintf(fp,"%30s%8.3lf%8.3lf%8.3lf%8.4lf%8.4lf%16.8le%16.8le\n",
+                        atoms[i].info,xyz[i][0]*dx,xyz[i][1]*dx,xyz[i][2]*dx,
+                        atoms[i].q,atoms[i].r,atoms[i].Asq,atoms[i].Bsq);
+        }
+}
+
 void SclRad(int nAtom, ATOM atoms[],const double scl){
         int i;
 	#pragma omp parallel for

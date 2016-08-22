@@ -33,6 +33,7 @@ void CalCtd(int nAtom, ATOM atoms[], double cen[3]);
 void ToCtd(int nAtom, ATOM atoms[], double cen[3]);
 void Unit2dx(int nAtom, ATOM atoms[],const double dx);
 void ShowPqr(FILE *fp, int nAtom, ATOM atoms[]);
+void ShowPqrdx(FILE *fp, int nAtom, ATOM atoms[], double xyz[][3], double dx);
 void SclRad(int nAtom, ATOM atoms[],const double scl);
 void SclChg(int nAtom, ATOM atoms[],const double scl);
 void SetKap(int nAtom, ATOM atoms[],const double kap);

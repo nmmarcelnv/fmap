@@ -248,4 +248,15 @@ void genconf(double lxyz[][3], int nums, double tranmat[6],double ltrxyz[][3]){
 	}
 }
 
+void xyz_t_r(double xyz[3], double tran[3], double rmat[3][3], double trxyz[3]){
+        trxyz[0]=tran[0]+xyz[0]*rmat[0][0]+xyz[1]*rmat[1][0]+xyz[2]*rmat[2][0];
+        trxyz[1]=tran[1]+xyz[0]*rmat[0][1]+xyz[1]*rmat[1][1]+xyz[2]*rmat[2][1];
+        trxyz[2]=tran[2]+xyz[0]*rmat[0][2]+xyz[1]*rmat[1][2]+xyz[2]*rmat[2][2];
+}
 
+void xyzs_t_r(double lxyz[][3], int nums, double tran[3], double rmat[3][3], double ltrxyz[][3]){
+        int i;
+        for (i=0;i<nums;i++){
+                xyz_t_r(lxyz[i],tran,rmat,ltrxyz[i]);
+        }
+}

@@ -1,20 +1,21 @@
 #include "common.h"
 #include "rand.h"
-#include "pdbnmr.h"
+#include "sdamm.h"
+#include "sdammio.h"
 
 #ifdef _OPENMP
 	fftw_real *recVol, *recR12,*recR6, *recEle;
 #endif
 
 void usage(char *prog){
-        printf("Usage: %s box.pdb pro.pdb ngrid gridsize ion SclRad SclQ tempK ang.dat eScl vScl Ecut seed PBCScl\n",prog);
+        printf("Usage: %s box.pdb pro.pdb ngrid gridsize ion SclRad SclQ tempK sdammtraj eScl vScl Ecut\n",prog);
 }
 
 int main(int argc, char **argv){
 #ifdef DEBUG
     fprintf(stderr,"RUNNING DEBUG BUILD\n");
 #endif
-	if (argc<15){
+	if (argc<13){
                 usage(argv[0]);
                 exit(EXIT_FAILURE);
         }
@@ -40,8 +41,6 @@ int main(int argc, char **argv){
 	double esclrel=atof(argv[10]);
 	double vsclrel=atof(argv[11]);
 	double erncut=atof(argv[12]);
-	int seed=atoi(argv[13]);
-	double pbcscl=atof(argv[14]);
 
 	fftw_init_threads();
 	fftw_plan_with_nthreads(omp_get_max_threads());
@@ -69,7 +68,7 @@ int main(int argc, char **argv){
 #endif /* USE_MPI */
 		nCrd=CountAtoms(CrdFn);
 		nPro=CountAtoms(ProFn);
-                nCen=MDLCountAtoms(CenFn);
+                nCen=SDACountAtoms(CenFn);
 #ifdef USE_MPI
         }
 	Times(true,1,8);
@@ -112,7 +111,7 @@ int main(int argc, char **argv){
 		SclRad(nPro,Pros,rscl);
         	CalCtd(nPro,Pros,cenLig);
         	ToCtd(nPro,Pros,cenLig);
-		Unit2dx(nPro,Pros,dx);
+		//Unit2dx(nPro,Pros,dx);
 
 		printf("%d\t%f\n",l,dx);
         	printf("%f\t%f\t%f\n",0.0,0.0,0.0);
@@ -152,40 +151,39 @@ int main(int argc, char **argv){
 	Times(true,1,7);
 	FILE *nmrfp;
 	nmrfp=fopen(CenFn,"r");
-	double cenxyz[nCen][3];
-	RANPARM ranp1;
-	ranp1.id=seed;
-        ran1(&ranp1);
 	int j,m;
-	double conf[6];
 	double ang[3]={0.0};
-	for(;;){
+	for(i=0;;i++){
 #ifdef USE_MPI
 		if (i%size==rank){
 #endif /* USE_MPI */
-			int nc=MDLReadxyz(nmrfp,nCen,cenxyz);
+			double cenxyz[nCen][3],xr[nCen][3],yr[nCen][3];
+			int nc=SDAReadxyz(nmrfp,nCen,cenxyz,xr,yr);
 			if (nc!=nCen){
 				break;
 			}
 			int nstep=nPro/nc;
 			int start=0;
-			double m1xyz[nstep][3],xyz[nstep][3];
+			double m1xyz[nstep][3],m2xyz[nstep][3];
 			for (j=0;j<nc;j++){
 				for (m=0;m<nstep;m++){
 					m1xyz[m][0]=Pros[start+m].xyz[0];
 					m1xyz[m][1]=Pros[start+m].xyz[1];
 					m1xyz[m][2]=Pros[start+m].xyz[2];
 				}
-				ranp2tr(&ranp1,conf,0.0);
-                		genconf(m1xyz,nstep,conf,xyz);
+				sdammTR(cenxyz[j],xr[j],yr[j],nstep,m1xyz,m2xyz);
 				for (m=0;m<nstep;m++){
-                                        xyzLig[start+m][0]=xyz[m][0]+cenxyz[j][0]*pbcscl/dx;
-                                        xyzLig[start+m][1]=xyz[m][1]+cenxyz[j][1]*pbcscl/dx;
-                                        xyzLig[start+m][2]=xyz[m][2]+cenxyz[j][2]*pbcscl/dx;
+                                        xyzLig[start+m][0]=m2xyz[m][0]/dx;
+                                        xyzLig[start+m][1]=m2xyz[m][1]/dx;
+                                        xyzLig[start+m][2]=m2xyz[m][2]/dx;
                                 }
 				start+=nstep;
 			}
-			ShowPqrdx(stdout,nPro,Pros, xyzLig, dx);
+			/*
+			if (i==5){
+				ShowPqrdx(stdout,nPro,Pros, xyzLig, dx);
+			}
+			*/
 			ProUpdate(lig,nPro,xyzLig);
 			Cross(rec,lig,sys,l,sav,ang,nb,mat);
 #ifdef USE_MPI

@@ -23,6 +23,8 @@ void ranp2tr(RANPARM *ranp, double tr[6], double radius);
 void ranp2cf(RANPARM *ranp, double cf[6], double radius);
 void transf(double costhB, double phiB, double chiB,double rmat[3][3]);
 void genconf(double lxyz[][3], int nums, double tranmat[6],double ltrxyz[][3]);
+void xyz_t_r(double xyz[3], double tran[3], double rmat[3][3], double trxyz[3]);
+void xyzs_t_r(double lxyz[][3], int nums, double tran[3], double rmat[3][3], double ltrxyz[][3]);
 
 #ifdef __cplusplus
 }
