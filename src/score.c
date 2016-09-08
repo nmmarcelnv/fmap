@@ -133,6 +133,36 @@ void BltzSumFilt(const int l, bool vol[l][l][l], fftw_real sav[l][l][2*(l/2+1)],
 	}
 }
 
+void getVi(fftw_real val, int *vi){
+	const double cutoff=40.0;
+	const double scl=2000.0/cutoff;
+	if (val>-cutoff&& val <cutoff){
+		*vi=(int)(floor(val*scl+0.5))+2000;
+	}else{
+		printf("%s:%d val:out of range  |%f|< %f\n", __FILE__, __LINE__,val,cutoff);
+	}
+}
+
+void VEInd(const int l, bool vol[l][l][l], fftw_real ele[l][l][2*(l/2+1)], fftw_real vdw[l][l][2*(l/2+1)], int nbin, double mat[nbin][nbin]){
+	int i,j,k;
+	#pragma omp parallel for private(j,k)
+	for (i=0;i<l;i++){
+               for (j=0;j<l;j++){
+                        for (k=0;k<l;k++){
+                                if (vol[i][j][k]){
+                                        continue;
+				}else{
+					int ei,vi;
+					getVi(ele[i][j][k],&ei);
+					getVi(vdw[i][j][k],&vi);
+					#pragma omp atomic
+					mat[ei][vi]+=1.0;
+				}
+			}
+		}
+	}
+}
+
 void Bltz2Ern(const int l,fftw_real sav[l][l][2*(l/2+1)],const double kBT){
 	int i,j,k;
 	#pragma omp parallel for private(j,k)

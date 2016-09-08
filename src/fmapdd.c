@@ -4,7 +4,7 @@
 #include "drt.h"
 
 void usage(char *prog){
-        printf("Usage: %s fmap.out ion tempK eScl vScl\n",prog);
+        printf("Usage: %s fmap.out ion tempK eScl vScl [rEcut rVcut]\n",prog);
 }
 
 void zeroarr(int n, double *v){

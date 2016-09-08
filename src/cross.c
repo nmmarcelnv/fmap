@@ -116,25 +116,33 @@ void xEle(PRO *rec, PRO *lig, PARM sys, const int l,fftw_real ligGrd[l][l][2*(l/
         fft3d_c2r(l,l,l,ligGrd);
 }
 
-void Cross(PRO *rec, PRO *lig, PARM sys, const int l,fftw_real sav[l][l][2*(l/2+1)], const double ang[3]){
+void Cross(PRO *rec, PRO *lig, PARM sys, const int l,fftw_real sav[l][l][2*(l/2+1)], const double ang[3], int nb, double mat[nb][nb]){
 	bool vol[l][l][l];
 	static double erncut=10.0;
 	fftw_real local[l][l][2*(l/2+1)];
 	fftw_real ligGrd[l][l][2*(l/2+1)];
+	fftw_real lcEle[l][l][2*(l/2+1)];
+	fftw_real lcVdw[l][l][2*(l/2+1)];
 	SetZero(l,local);
+	SetZero(l,lcEle);
+	SetZero(l,lcVdw);
 	xVol(rec,lig,sys,l,ligGrd);
 	vRep(l,vol,0.001,ligGrd,1.0,"vol",sys.kBT);
 	//exit(0);
 	xEle(rec,lig,sys,l,ligGrd);
 	AddTo1(l,local,1.0,ligGrd,sys.escl);
+	AddTo1(l,lcEle,1.0,ligGrd,sys.escl);
 	vRep(l,vol,0.001,ligGrd,sys.escl,"ele",sys.kBT);
 	
 	xR6(rec,lig,sys,l,ligGrd);
         AddTo1(l,local,1.0,ligGrd,sys.vscl);
+	AddTo1(l,lcVdw,1.0,ligGrd,sys.vscl);
         vRep(l,vol,0.001,ligGrd,sys.vscl,"vdw",sys.kBT);
 
 	xR12(rec,lig,sys,l,ligGrd);
 	AddTo1(l,local,1.0,ligGrd,sys.vscl);
+	AddTo1(l,lcVdw,1.0,ligGrd,sys.vscl);
+	VEInd(l, vol, lcEle, lcVdw, nb, mat);
 	vRep(l,vol,0.001,ligGrd,sys.vscl,"v12",sys.kBT);
 	vRep(l,vol,0.001,local,1.0,"v+e",sys.kBT);
 	if (erncut>0){

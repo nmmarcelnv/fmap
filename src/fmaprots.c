@@ -1,18 +1,20 @@
 #include "common.h"
+#include "rand.h"
+#include "pdbnmr.h"
 
 #ifdef _OPENMP
 	fftw_real *recVol, *recR12,*recR6, *recEle;
 #endif
 
 void usage(char *prog){
-        printf("Usage: %s box.pdb pro.pdb ngrid gridsize ion SclRad SclQ tempK ang.dat eScl vScl Ecut [rEcut rVcut]\n",prog);
+        printf("Usage: %s box.pdb pro.pdb ngrid gridsize ion SclRad SclQ tempK ang.dat eScl vScl Ecut seed PBCScl [rEcut rVcut]\n",prog);
 }
 
 int main(int argc, char **argv){
 #ifdef DEBUG
     fprintf(stderr,"RUNNING DEBUG BUILD\n");
 #endif
-	if (argc<13){
+	if (argc<15){
                 usage(argv[0]);
                 exit(EXIT_FAILURE);
         }
@@ -34,17 +36,19 @@ int main(int argc, char **argv){
 	double rscl=atof(argv[6]);
 	double qscl=atof(argv[7]);
 	double tempK=atof(argv[8]);
-	char* ang=argv[9];
+	char* CenFn=argv[9];
 	double esclrel=atof(argv[10]);
 	double vsclrel=atof(argv[11]);
 	double erncut=atof(argv[12]);
+	int seed=atoi(argv[13]);
+	double pbcscl=atof(argv[14]);
 	double rEcut=12.0;
 	double rVcut=12.0;
-	if (argc>=14){
-		rEcut=atof(argv[13]);
+	if (argc>=16){
+		rEcut=atof(argv[15]);
 	}
-	if (argc>=15){
-		rVcut=atof(argv[14]);
+	if (argc>=17){
+		rVcut=atof(argv[16]);
 	}
 
 	fftw_init_threads();
@@ -68,19 +72,19 @@ int main(int argc, char **argv){
 	//sys.kBT=0.591;
 	sys.erncut=erncut; //-1.0*sys.kBT*(3.0*log((double)(l))-log(10.0));
 
-	int nCrd,nPro,nAng;
+	int nCrd,nPro,nCen;
 #ifdef USE_MPI
 	if (rank==0){
 #endif /* USE_MPI */
 		nCrd=CountAtoms(CrdFn);
 		nPro=CountAtoms(ProFn);
-                nAng=CountAng(ang);
+                nCen=MDLCountAtoms(CenFn);
 #ifdef USE_MPI
         }
 	Times(true,1,8);
 	MPI_Bcast(&nCrd,1,MPI_INT,0,MPI_COMM_WORLD);
 	MPI_Bcast(&nPro,1,MPI_INT,0,MPI_COMM_WORLD);
-	MPI_Bcast(&nAng,1,MPI_INT,0,MPI_COMM_WORLD);
+	MPI_Bcast(&nCen,1,MPI_INT,0,MPI_COMM_WORLD);
 	
 	//https://www.msi.umn.edu/workshops/mpi/hands-on/derived-datatypes/struct/assign
 	//define MPI type for ATOM modified for MPI-2
@@ -98,7 +102,7 @@ int main(int argc, char **argv){
 
         ATOM Crds[nCrd];
         ATOM Pros[nPro];
-        double Angs[nAng][3];
+        //double Angs[nAng][3];
 #ifdef USE_MPI
 	if (rank==0){
 #endif /* USE_MPI */
@@ -117,21 +121,19 @@ int main(int argc, char **argv){
 		SclRad(nPro,Pros,rscl);
         	CalCtd(nPro,Pros,cenLig);
         	ToCtd(nPro,Pros,cenLig);
-		Unit2dx(nPro,Pros,dx);
+		//Unit2dx(nPro,Pros,dx);
 
 		printf("%d\t%f\n",l,dx);
         	printf("%f\t%f\t%f\n",0.0,0.0,0.0);
         	printf("%s\t%8.3f%8.3f%8.3f\n",CrdFn,cenRec[0],cenRec[1],cenRec[2]);
         	printf("%s\t%8.3f%8.3f%8.3f\n",ProFn,cenLig[0],cenLig[1],cenLig[2]);
-		fflush(stdout);
 
-		SetAng(ang,Angs);
+		//SetAng(ang,Angs);
 #ifdef USE_MPI
 	}
 	Times(false,1,8);
 	MPI_Bcast(Crds,nCrd,MPI_ATOM,0,MPI_COMM_WORLD);
 	MPI_Bcast(Pros,nPro,MPI_ATOM,0,MPI_COMM_WORLD);
-	MPI_Bcast(Angs,nAng*3,MPI_DOUBLE,0,MPI_COMM_WORLD);
 	Times(false,1,8);
 #endif /* USE_MPI */
 
@@ -156,18 +158,49 @@ int main(int argc, char **argv){
 #endif
 	Times(false,1,0);
 	Times(true,1,7);
-	for (i=0;i<nAng;i++){
+	FILE *nmrfp;
+	nmrfp=fopen(CenFn,"r");
+	double cenxyz[nCen][3];
+	RANPARM ranp1;
+	ranp1.id=seed;
+        ran1(&ranp1);
+	int j,m;
+	double conf[6];
+	double ang[3]={0.0};
+	for(;;){
 #ifdef USE_MPI
 		if (i%size==rank){
 #endif /* USE_MPI */
-			Euler2Rot(Angs[i][0],Angs[i][1],Angs[i][2],rot);
-			RotXYZ(nPro,Pros,xyzLig,rot);
+			int nc=MDLReadxyz(nmrfp,nCen,cenxyz);
+			if (nc!=nCen){
+				break;
+			}
+			int nstep=nPro/nc;
+			int start=0;
+			double m1xyz[nstep][3],xyz[nstep][3];
+			for (j=0;j<nc;j++){
+				for (m=0;m<nstep;m++){
+					m1xyz[m][0]=Pros[start+m].xyz[0];
+					m1xyz[m][1]=Pros[start+m].xyz[1];
+					m1xyz[m][2]=Pros[start+m].xyz[2];
+				}
+				ranp2tr(&ranp1,conf,0.0);
+                		genconf(m1xyz,nstep,conf,xyz);
+				for (m=0;m<nstep;m++){
+                                        xyzLig[start+m][0]=(xyz[m][0]+cenxyz[j][0]*pbcscl)/dx;
+                                        xyzLig[start+m][1]=(xyz[m][1]+cenxyz[j][1]*pbcscl)/dx;
+                                        xyzLig[start+m][2]=(xyz[m][2]+cenxyz[j][2]*pbcscl)/dx;
+                                }
+				start+=nstep;
+			}
+			//ShowPqrdx(stdout,nPro,Pros, xyzLig, dx);
 			ProUpdate(lig,nPro,xyzLig);
-			Cross(rec,lig,sys,l,sav,Angs[i],nb,mat);
+			Cross(rec,lig,sys,l,sav,ang,nb,mat);
 #ifdef USE_MPI
 		}
 #endif /* USE_MPI */
 	}
+	fclose(nmrfp);
 	Times(false,1,7);
 	bool vol[l][l][l];
 	SetBool(l,vol,false);

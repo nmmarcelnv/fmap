@@ -14,6 +14,7 @@ void RotXYZ(int nAtom, ATOM atoms[], double xyznew[][3], double rot[9]);
 void RotPro(int nAtom, ATOM atoms[], ATOM pro[], double rot[9]);
 int CountAng(char *pdbfn);
 int SetAng(char *pdbfn, double Angs[][3]);
+int SetFns(char *pdbfn, char Angs[][MAXLENLINE]);
 
 #ifdef __cplusplus
 }

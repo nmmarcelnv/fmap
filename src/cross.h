@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-void Cross(PRO *rec, PRO *lig, PARM sys, const int l,fftw_real sav[l][l][2*(l/2+1)], const double ang[3]);
+void Cross(PRO *rec, PRO *lig, PARM sys, const int l,fftw_real sav[l][l][2*(l/2+1)], const double ang[3], int nb, double mat[nb][nb]);
 
 #ifdef __cplusplus
 }
