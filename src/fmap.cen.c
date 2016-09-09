@@ -10,7 +10,7 @@ void usage(char *prog){
 
 int main(int argc, char **argv){
 #ifdef DEBUG
-    fprintf(stderr,"RUNNING DEBUG BUILD\n");
+	fprintf(stderr,"RUNNING DEBUG BUILD\n");
 #endif
 	if (argc<13){
                 usage(argv[0]);
@@ -55,8 +55,8 @@ int main(int argc, char **argv){
 //	printf("TACC rank:%d\n",rank);
 //#endif
 
-    PARM sys;	
-    sys.rup=rVcut;
+	PARM sys;	
+	sys.rup=rVcut;
 	sys.rEup=rEcut;
 	sys.rlow=1.0;
 	sys.dx=dx;
