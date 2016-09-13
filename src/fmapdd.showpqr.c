@@ -7,18 +7,11 @@ void usage(char *prog){
         printf("Usage: %s fmap.out ion tempK eScl vScl [rEcut rVcut]\n",prog);
 }
 
-void zeroarr(int n, double *v){
-	int i;
-	for (i=0;i<n;i++){
-		v[i]=0;
-	}
-}
-
 int main(int argc, char **argv){
 #ifdef DEBUG
-    fprintf(stderr,"RUNNING DEBUG BUILD\n");
+	fprintf(stderr,"RUNNING DEBUG BUILD\n");
 #endif
-	 if (argc<6){
+	if (argc<6){
                 usage(argv[0]);
                 exit(EXIT_FAILURE);
         }

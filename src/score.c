@@ -55,6 +55,13 @@ void SetZero(const int l, fftw_real grd[l][l][2*(l/2+1)]){
         }
 }
 
+void zeroarr(int n, double *v){
+        int i;
+        for (i=0;i<n;i++){
+                v[i]=0;
+        }
+}
+
 void vRep(const int l, bool vol[l][l][l], const double cutoff,\
 	  fftw_real grd[l][l][2*(l/2+1)], const double scl, const char* str, const double kBT){
         int i,j,k;

@@ -9,6 +9,7 @@ extern "C" {
 
 void SetBool(const int l, bool vol[l][l][l], bool label);
 void SetZero(const int l, fftw_real grd[l][l][2*(l/2+1)]);
+void zeroarr(int n, double *v);
 void vRep(const int l,bool vol[l][l][l], double cutoff, fftw_real grd[l][l][2*(l/2+1)], const double scl, const char* str, const double kBT);
 void AddTo1(const int l,fftw_real grd1[l][l][2*(l/2+1)], const double scl1, fftw_real grd2[l][l][2*(l/2+1)], const double scl2);
 void SelErn(const int l,bool vol[l][l][l],fftw_real grd1[l][l][2*(l/2+1)],const double ang[3],const double erncut);

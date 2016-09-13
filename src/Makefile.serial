@@ -17,7 +17,7 @@ OBJECTSdd=$(SOURCESdd:.c=.o)
 OBJECTSddMIC=$(SOURCESdd:.c=.om)
 OBJECTSddatm=$(SOURCESddatm:.c=.o)
 OBJECTSddatmMIC=$(SOURCESddatm:.c=.om)
-EXECUTABLE=fmap fmap.cen fmapdd fmapdd.atm fmapdd.showpqr matevscl fmappdbs fmaprots fmapsdamm
+EXECUTABLE=fmap fmap.cen fmapdd fmapdd.atm fmapdd.showpqr matevscl fmappdbs fmaprots fmapsdamm fmapddTs
 EXECUTABLEMIC=fmapdd.mic fmapdd.atm.mic fmapdd.showpqr.mic
 
 all: $(SOURCES) $(SOURCESdd) $(EXECUTABLE)
@@ -49,6 +49,9 @@ fmapdd.showpqr: $(OBJECTSdd)  fmapdd.showpqr.c
 	$(ICC) $(OBJECTSdd) fmapdd.showpqr.c $(LDFLAGS) -o $@
 fmapdd.showpqr.mic: $(OBJECTSddMIC)  fmapdd.showpqr.c
 	$(ICC) $(OBJECTSddMIC) fmapdd.showpqr.c $(LDFLAGSMIC) -o $@
+
+fmapddTs: $(OBJECTSdd)  fmapddTs.c rand.c
+	$(ICC) $(OBJECTSdd) fmapddTs.c rand.c $(LDFLAGS) -o $@
 
 fmapdd.atm: $(OBJECTSddatm)  fmapdd.c
 	$(ICC) $(OBJECTSddatm) fmapdd.c $(LDFLAGS) -o $@
