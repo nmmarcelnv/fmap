@@ -1,7 +1,7 @@
 This code describes a Fast Fourier Transform method to compute interaction energy between large macromolecules. 
 I used it this publication 
 [Nguemaha, V., Qin, S., & Zhou, H. X. (2018). Atomistic Modeling of Intrinsically Disordered Proteins Under Polyethylene Glycol Crowding: Quantitative Comparison with 
-Experimental Data and Implication of Protein–Crowder Attraction. The Journal of Physical Chemistry B, 122(49), 11262-11270.](https://pubs.acs.org/doi/full/10.1021/acs.jpcb.8b07066)
+Experimental Data and Implication of Protein–Crowder Attraction. The Journal of Physical Chemistry B, 122(49), 11262-11270](https://pubs.acs.org/doi/full/10.1021/acs.jpcb.8b07066)
 
 dat/ rotations angles and lattice.txt
 src/  source code and exe
